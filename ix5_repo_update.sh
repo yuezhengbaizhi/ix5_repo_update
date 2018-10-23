@@ -26,8 +26,6 @@ git fetch ix5
 git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETCH_HEAD
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
-# Add legacy bluetooth prop
-git fetch $LINK 821a1d2258f00ae3e9e2260c3a91e9d458b9755b && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
