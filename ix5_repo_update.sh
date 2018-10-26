@@ -48,6 +48,10 @@ git fetch $LINK 611a5f3013fda21b2605581a243f363ac2d4b256 && git cherry-pick FETC
 git fetch $LINK da4a15ce6496ce32fd6cef9b389698dd6e3da8c0 && git cherry-pick FETCH_HEAD
 # Don't style buttons in ALL CAPS
 git fetch $LINK b2a820fd0d4613e785d00f352853deeb108f9f33 && git cherry-pick FETCH_HEAD
+
+#git checkout 'night-light'
+# Try fixing nightlight
+git fetch $LINK 83438e5448dafe25bc22490c9189d426eac02a83 && git cherry-pick FETCH_HEAD
 popd
 
 # because "set -e" is used above, when we get to this point, we know
