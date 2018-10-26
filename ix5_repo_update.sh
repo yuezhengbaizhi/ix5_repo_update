@@ -50,15 +50,6 @@ git fetch $LINK da4a15ce6496ce32fd6cef9b389698dd6e3da8c0 && git cherry-pick FETC
 git fetch $LINK b2a820fd0d4613e785d00f352853deeb108f9f33 && git cherry-pick FETCH_HEAD
 popd
 
-pushd $ANDROOT/vendor/oss/fingerprint
-LINK=$HTTP && LINK+="://git.ix5.org/felix/vendor-sony-oss-fingerprint"
-(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
-#git checkout 'vendor-fps-hal'
-# Service: Change fps_hal to vendor.fps_hal
-git fetch $LINK 2a0d432ec101536ed8145d03d14a36e1abaddcf6 && git cherry-pick FETCH_HEAD
-popd
-
 # because "set -e" is used above, when we get to this point, we know
 # all patches were applied successfully.
 echo "+++ all ***ix5**** patches applied successfully! +++"
