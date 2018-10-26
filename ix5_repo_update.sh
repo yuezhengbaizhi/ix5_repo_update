@@ -21,7 +21,7 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 git fetch ix5
 
-#git checkout 'disable-verity-no-forceencrypt'
+# git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
 git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETCH_HEAD
 # Disable dm-verity
@@ -33,13 +33,17 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 git fetch ix5
 
-#git checkout 'pixel-colors'
+# git checkout 'disable-privapp-perms-enforce'
+# Disable: enforce privapp permissions
+git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
+
+# git checkout 'pixel-colors'
 # Add pixel colors
 git fetch $LINK dee417b874ffb6683677f1db10038ce615124ad8 && git cherry-pick FETCH_HEAD
 # Add default wallpaper from unsplash
 git fetch $LINK 4ab8162805d3ac98a831477d053243adfa0f9582 && git cherry-pick FETCH_HEAD
 
-#git checkout 'systemui-tweaks'
+# git checkout 'systemui-tweaks'
 # Enable swipe-up gesture for homescreen by default
 git fetch $LINK 15c2820159a2440a87010b92b6befe0db0818d13 && git cherry-pick FETCH_HEAD
 # Enable keyguard shortcuts
@@ -49,7 +53,7 @@ git fetch $LINK da4a15ce6496ce32fd6cef9b389698dd6e3da8c0 && git cherry-pick FETC
 # Don't style buttons in ALL CAPS
 git fetch $LINK b2a820fd0d4613e785d00f352853deeb108f9f33 && git cherry-pick FETCH_HEAD
 
-#git checkout 'night-light'
+# git checkout 'night-light'
 # Try fixing nightlight
 git fetch $LINK 83438e5448dafe25bc22490c9189d426eac02a83 && git cherry-pick FETCH_HEAD
 # Set default night light to disabled
