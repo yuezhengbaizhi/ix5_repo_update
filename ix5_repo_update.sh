@@ -52,6 +52,8 @@ git fetch $LINK b2a820fd0d4613e785d00f352853deeb108f9f33 && git cherry-pick FETC
 #git checkout 'night-light'
 # Try fixing nightlight
 git fetch $LINK 83438e5448dafe25bc22490c9189d426eac02a83 && git cherry-pick FETCH_HEAD
+# Set default night light to disabled
+git fetch $LINK fb4d07885a1296b73f9d39ded2ebaef625b45f6d && git cherry-pick FETCH_HEAD
 popd
 
 # because "set -e" is used above, when we get to this point, we know
