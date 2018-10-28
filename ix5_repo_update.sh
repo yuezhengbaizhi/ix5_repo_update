@@ -37,27 +37,6 @@ git fetch ix5
 # Disable: enforce privapp permissions
 git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
 
-# git checkout 'pixel-colors'
-# Add pixel colors
-git fetch $LINK dee417b874ffb6683677f1db10038ce615124ad8 && git cherry-pick FETCH_HEAD
-# Add default wallpaper from unsplash
-git fetch $LINK 4ab8162805d3ac98a831477d053243adfa0f9582 && git cherry-pick FETCH_HEAD
-
-# git checkout 'systemui-tweaks'
-# Enable swipe-up gesture for homescreen by default
-git fetch $LINK 15c2820159a2440a87010b92b6befe0db0818d13 && git cherry-pick FETCH_HEAD
-# Enable keyguard shortcuts
-git fetch $LINK 611a5f3013fda21b2605581a243f363ac2d4b256 && git cherry-pick FETCH_HEAD
-# Fix quicksettings layout
-git fetch $LINK da4a15ce6496ce32fd6cef9b389698dd6e3da8c0 && git cherry-pick FETCH_HEAD
-# Don't style buttons in ALL CAPS
-git fetch $LINK b2a820fd0d4613e785d00f352853deeb108f9f33 && git cherry-pick FETCH_HEAD
-
-# git checkout 'night-light'
-# Try fixing nightlight
-git fetch $LINK 83438e5448dafe25bc22490c9189d426eac02a83 && git cherry-pick FETCH_HEAD
-# Set default night light to disabled
-git fetch $LINK fb4d07885a1296b73f9d39ded2ebaef625b45f6d && git cherry-pick FETCH_HEAD
 popd
 
 # because "set -e" is used above, when we get to this point, we know
