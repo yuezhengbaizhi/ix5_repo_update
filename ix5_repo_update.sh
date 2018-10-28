@@ -36,6 +36,9 @@ git fetch ix5
 # git checkout 'disable-privapp-perms-enforce'
 # Disable: enforce privapp permissions
 git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
+# git checkout 'odm-ver-1'
+# Temporarily set expected odm version to 1
+git fetch $LINK 8ea28fddf82a63e9776fe94317233459fe8f3f42 && git cherry-pick FETCH_HEAD
 
 popd
 
