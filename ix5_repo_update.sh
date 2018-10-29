@@ -35,7 +35,7 @@ git fetch ix5
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5
-git fetch $LINK 349bcb8038caa79f4c8ede00b59012bc512e961a && git cherry-pick FETCH_HEAD
+git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETCH_HEAD
 
 # git checkout 'disable-privapp-perms-enforce'
 # Disable: enforce privapp permissions
