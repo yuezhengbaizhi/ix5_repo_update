@@ -16,6 +16,16 @@ popd () {
 
 echo "+++ applying ***ix5*** patches +++"
 
+pushd $ANDROOT/build/make
+LINK=$HTTP && LINK+="://git.ix5.org/felix/android-platform-build"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+
+# git checkout 'add-vendor-ix5'
+# Add vendor/ix5/Android.mk to aosp_base.mk
+git fetch $LINK 3089e6b968b34d7e701342cc1beecd01ebd3c1b9 && git cherry-pick FETCH_HEAD
+popd
+
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
