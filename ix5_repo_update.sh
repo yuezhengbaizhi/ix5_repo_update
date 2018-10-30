@@ -24,7 +24,7 @@ git fetch ix5
 
 # git checkout 'remove-car'
 # Remove car libs from packageinstaller
-git fetch $LINK 7a34e4cb4e8f6eab329a64e2971ffbd924a05906 && git cherry-pick FETCH_HEAD
+git fetch $LINK e4e5b1f25f4026686df067e170fc490944214eae && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/tone
