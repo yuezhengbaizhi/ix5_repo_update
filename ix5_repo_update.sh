@@ -17,11 +17,6 @@ popd () {
 echo "+++ applying ***ix5*** patches +++"
 
 
-# Remove car tests from CTS
-pushd $ANDROOT/cts
-rm -rf tests/tests/car/
-popd
-
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
