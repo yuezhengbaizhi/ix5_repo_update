@@ -16,6 +16,17 @@ popd () {
 
 echo "+++ applying ***ix5*** patches +++"
 
+
+pushd $ANDROOT/packages/apps/PackageInstaller
+LINK=$HTTP && LINK+="://git.ix5.org/felix/android-packages-packageinstaller"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+
+# git checkout 'remove-car'
+# Remove car libs from packageinstaller
+git fetch $LINK 7a34e4cb4e8f6eab329a64e2971ffbd924a05906 && git cherry-pick FETCH_HEAD
+popd
+
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
