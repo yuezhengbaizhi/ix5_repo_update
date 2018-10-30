@@ -27,6 +27,11 @@ git fetch ix5
 git fetch $LINK e4e5b1f25f4026686df067e170fc490944214eae && git cherry-pick FETCH_HEAD
 popd
 
+# Remove car tests from CTS
+pushd $ANDROOT/cts
+rm -r tests/tests/car/
+popd
+
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
