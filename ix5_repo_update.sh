@@ -29,7 +29,7 @@ popd
 
 # Remove car tests from CTS
 pushd $ANDROOT/cts
-rm -r tests/tests/car/
+rm -rf tests/tests/car/
 popd
 
 pushd $ANDROOT/device/sony/tone
