@@ -27,6 +27,8 @@ git fetch ix5
 git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETCH_HEAD
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
+# Display: Switch from msmfb to SDE
+git fetch $LINK b0bf69f164cc3cb3e0181e6e08a10a57d766378a && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
