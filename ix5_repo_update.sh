@@ -39,7 +39,7 @@ git fetch ix5
 
 # git checkout 'taptowake'
 # Re-enable tap to wake
-git fetch $LINK ffc06d3e7befb4e7234243481101bd5324b9609f && git cherry-pick FETCH_HEAD
+#git fetch $LINK ffc06d3e7befb4e7234243481101bd5324b9609f && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
