@@ -29,6 +29,10 @@ git fetch ix5
 git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETCH_HEAD
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
+# git checkout 'leds'
+# Revert led paths
+git fetch $LINK 30c55fb8f7032248e4c67269ef77e96df2d962c8 && git cherry-pick FETCH_HEAD
+
 popd
 
 
