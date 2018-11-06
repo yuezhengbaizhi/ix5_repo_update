@@ -24,6 +24,8 @@ echo "+++                                               +++"
 
 pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 # Enable wakeup_gesture in dtsi table
+# You need to discard vendor-sony-kernel or the build system will use
+# precompiled dtb files, thus rendering this patch useless
 git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 popd
 
@@ -56,7 +58,7 @@ git fetch ix5
 
 # git checkout 'taptowake'
 # Re-enable tap to wake
-#git fetch $LINK ffc06d3e7befb4e7234243481101bd5324b9609f && git cherry-pick FETCH_HEAD
+git fetch $LINK ffc06d3e7befb4e7234243481101bd5324b9609f && git cherry-pick FETCH_HEAD
 
 popd
 
