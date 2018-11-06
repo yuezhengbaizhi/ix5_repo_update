@@ -24,12 +24,12 @@ echo "+++                                               +++"
 
 pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 # Enable wakeup_gesture in dtsi table
-git apply $PATCHES_PATH/kernel-dtsi-wakeup.patch
+git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 popd
 
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
-git apply $PATCHES_PATH/bluetooth-disable-email-test.patch
+git am < $PATCHES_PATH/bluetooth-disable-email-test.patch
 popd
 
 pushd $ANDROOT/device/sony/tone

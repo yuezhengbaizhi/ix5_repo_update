@@ -1,3 +1,12 @@
+From c8a03fa255f8882b2c170e379fab8018da566657 Mon Sep 17 00:00:00 2001
+From: Felix <none@none.none>
+Date: Tue, 6 Nov 2018 22:26:10 +0100
+Subject: [PATCH] Apply dtsi wakeup patch
+
+---
+ arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
 diff --git a/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi b/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi
 index 2eff1df2bae5..17790f4d024b 100644
 --- a/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi
@@ -13,3 +22,6 @@ index 2eff1df2bae5..17790f4d024b 100644
  			wakeup_gesture_timeout = <0>;
  			wakeup_gesture {
  				double_tap {
+-- 
+2.19.1
+
