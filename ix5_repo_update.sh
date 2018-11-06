@@ -6,7 +6,7 @@ set -e
 
 ANDROOT=$PWD
 HTTP=https
-RESOLVED_REPO_PATH="$(dirname $(readlink $0))"
+RESOLVED_REPO_PATH="$ANDROOT/$(dirname $(readlink $0))"
 PATCHES_PATH=$RESOLVED_REPO_PATH/patches
 
 pushd () {
