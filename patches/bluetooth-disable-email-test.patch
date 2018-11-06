@@ -1,0 +1,12 @@
+diff --git a/tests/unit/Android.mk b/tests/unit/Android.mk
+index ef948a6e..f3c163e3 100644
+--- a/tests/unit/Android.mk
++++ b/tests/unit/Android.mk
+@@ -14,7 +14,6 @@ LOCAL_JAVA_LIBRARIES := \
+     android.test.mock
+ 
+ LOCAL_STATIC_JAVA_LIBRARIES :=  \
+-    com.android.emailcommon \
+     android-support-test \
+     mockito-target \
+     espresso-intents

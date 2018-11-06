@@ -3,8 +3,11 @@
 # exit script immediately if a command fails
 set -e
 
+
 ANDROOT=$PWD
 HTTP=https
+RESOLVED_REPO_PATH="$(dirname $(readlink $0))"
+PATCHES_PATH=$RESOLVED_REPO_PATH/patches
 
 pushd () {
     command pushd "$@" > /dev/null
@@ -18,6 +21,16 @@ echo "+++                                               +++"
 echo "+++      applying ***ix5*** patches               +++"
 echo "+++                                               +++"
 
+
+pushd $ANDROOT/kernel/sony/msm-4.9/kernel
+# Enable wakeup_gesture in dtsi table
+git apply $PATCHES_PATH/kernel-dtsi-wakeup.patch
+popd
+
+pushd $ANDROOT/packages/apps/Bluetooth
+# Disable email module for BluetoothInstrumentionTest
+git apply $PATCHES_PATH/bluetooth-disable-email-test.patch
+popd
 
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
@@ -44,6 +57,7 @@ git fetch ix5
 # git checkout 'taptowake'
 # Re-enable tap to wake
 #git fetch $LINK ffc06d3e7befb4e7234243481101bd5324b9609f && git cherry-pick FETCH_HEAD
+
 popd
 
 pushd $ANDROOT/device/sony/common
