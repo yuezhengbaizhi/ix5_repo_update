@@ -29,6 +29,11 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 popd
 
+pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
+# Tone: use DRM for display
+git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
+popd
+
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
 git am < $PATCHES_PATH/bluetooth-disable-email-test.patch
