@@ -95,6 +95,10 @@ git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETC
 # Temporarily set expected odm version to 1
 git fetch $LINK 8ea28fddf82a63e9776fe94317233459fe8f3f42 && git cherry-pick FETCH_HEAD
 
+# git checkout 'sde-msm8998'
+# [temp] Set QCOM_MEDIA_ROOT for legacy devices
+git fetch $LINK ce3d0729a81c53180d547b5bdef385bd231bb5ae && git cherry-pick FETCH_HEAD
+
 popd
 
 # because "set -e" is used above, when we get to this point, we know
