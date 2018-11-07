@@ -53,6 +53,10 @@ git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETC
 # Revert led paths
 git fetch $LINK 30c55fb8f7032248e4c67269ef77e96df2d962c8 && git cherry-pick FETCH_HEAD
 
+# git checkout 'use-sde'
+# Testing: switch to new SDE display HAL
+git fetch $LINK f9d8df7f57f26fe3c5a665e51199ee087e406190 && git cherry-pick FETCH_HEAD
+
 LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add sjlls-tone $LINK
 git fetch sjlls-tone
