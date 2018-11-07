@@ -50,7 +50,7 @@ git fetch $LINK 30c55fb8f7032248e4c67269ef77e96df2d962c8 && git cherry-pick FETC
 
 LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add sjlls-tone $LINK
-git fetch sjllls-tone
+git fetch sjlls-tone
 
 # Bump CPU frequency and increase min_cpus for video de/encoding
 git fetch $LINK c657e25fff3887e71b316cff1f7000aa268e5d18 && git cherry-pick FETCH_HEAD
