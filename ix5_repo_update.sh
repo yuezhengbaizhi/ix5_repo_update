@@ -56,11 +56,9 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 git fetch ix5
 
-# git checkout 'taptowake'
+# git checkout 'dt2w'
 # Re-enable tap to wake
-git fetch $LINK ffc06d3e7befb4e7234243481101bd5324b9609f && git cherry-pick FETCH_HEAD
-# Fix wakeup_gesture path
-git fetch $LINK 756b0ed23d8fe34f199496a1ba9a50e699cef4ef && git cherry-pick FETCH_HEAD
+git fetch $LINK 90a80f6e42bfd2feca40fbdc8e2b046ff654032a && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
