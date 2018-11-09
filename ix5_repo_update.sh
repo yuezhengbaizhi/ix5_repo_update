@@ -27,12 +27,12 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 # You need to discard vendor-sony-kernel or the build system will use
 # precompiled dtb files, thus rendering this patch useless
 git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
-git am < $PATCHES_PATH/defconfig-tone-kagura.patch
+# git am < $PATCHES_PATH/defconfig-tone-kagura.patch
 popd
 
 pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
 # Tone: use DRM for display
-git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
+# git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
 popd
 
 pushd $ANDROOT/packages/apps/Bluetooth
@@ -53,10 +53,12 @@ git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETC
 # git checkout 'leds'
 # Revert led paths
 git fetch $LINK 30c55fb8f7032248e4c67269ef77e96df2d962c8 && git cherry-pick FETCH_HEAD
+# But remove old nfc paths
+git fetch $LINK 58880eb7cb0cacb24fe19bfb44459b76439b70ba && git cherry-pick FETCH_HEAD
 
 # git checkout 'use-sde'
 # Testing: switch to new SDE display HAL
-git fetch $LINK f9d8df7f57f26fe3c5a665e51199ee087e406190 && git cherry-pick FETCH_HEAD
+# git fetch $LINK f9d8df7f57f26fe3c5a665e51199ee087e406190 && git cherry-pick FETCH_HEAD
 
 LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add sjlls-tone $LINK
