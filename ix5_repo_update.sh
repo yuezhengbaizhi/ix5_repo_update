@@ -51,10 +51,8 @@ git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETC
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
 # git checkout 'leds'
-# Revert led paths
-git fetch $LINK 30c55fb8f7032248e4c67269ef77e96df2d962c8 && git cherry-pick FETCH_HEAD
-# But remove old nfc paths
-git fetch $LINK 58880eb7cb0cacb24fe19bfb44459b76439b70ba && git cherry-pick FETCH_HEAD
+# Sepolicy: Restore LED path conditions
+git fetch $LINK 314861e373582c3d0f86e49fb153e1dd80cdaea4 && git cherry-pick FETCH_HEAD
 
 # git checkout 'use-sde'
 # Testing: switch to new SDE display HAL
