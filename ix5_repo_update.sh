@@ -51,8 +51,8 @@ git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETC
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
 # git checkout 'leds'
-# Sepolicy: Restore LED path conditions
-git fetch $LINK 314861e373582c3d0f86e49fb153e1dd80cdaea4 && git cherry-pick FETCH_HEAD
+# ueventd.rc: Fix LED paths for kernel 4.9
+git fetch $LINK da37a13684f7ff9912daf2d0a24323d1cb4fee6b && git cherry-pick FETCH_HEAD
 
 # git checkout 'use-sde'
 # Testing: switch to new SDE display HAL
