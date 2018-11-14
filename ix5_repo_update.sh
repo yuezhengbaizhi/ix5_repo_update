@@ -58,12 +58,12 @@ git fetch $LINK da37a13684f7ff9912daf2d0a24323d1cb4fee6b && git cherry-pick FETC
 # Testing: switch to new SDE display HAL
 # git fetch $LINK f9d8df7f57f26fe3c5a665e51199ee087e406190 && git cherry-pick FETCH_HEAD
 
-LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-tone"
-(git remote --verbose | grep -q $LINK) || git remote add sjlls-tone $LINK
-git fetch sjlls-tone
+# LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-tone"
+# (git remote --verbose | grep -q $LINK) || git remote add sjlls-tone $LINK
+# git fetch sjlls-tone
 
 # Bump CPU frequency and increase min_cpus for video de/encoding
-git fetch $LINK c657e25fff3887e71b316cff1f7000aa268e5d18 && git cherry-pick FETCH_HEAD
+# git fetch $LINK c657e25fff3887e71b316cff1f7000aa268e5d18 && git cherry-pick FETCH_HEAD
 
 popd
 
