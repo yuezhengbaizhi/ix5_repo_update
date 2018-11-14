@@ -30,10 +30,10 @@ git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 # git am < $PATCHES_PATH/defconfig-tone-kagura.patch
 popd
 
-pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
+# pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
 # Tone: use DRM for display
 # git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
-popd
+# popd
 
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
@@ -50,9 +50,6 @@ git fetch ix5
 git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETCH_HEAD
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
-# git checkout 'leds'
-# ueventd.rc: Fix LED paths for kernel 4.9
-git fetch $LINK da37a13684f7ff9912daf2d0a24323d1cb4fee6b && git cherry-pick FETCH_HEAD
 
 # git checkout 'use-sde'
 # Testing: switch to new SDE display HAL
@@ -86,7 +83,7 @@ git fetch ix5
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5
 git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETCH_HEAD
-# Include vendor-ix5 CommonConfig.mk
+# Include vendor-ix5 CommonConfig.mk (to set selinux to "enforcing")
 #git fetch $LINK c65fe0d8322a189af8fc8f937d5cd4ef6403eca3 && git cherry-pick FETCH_HEAD
 
 # git checkout 'disable-privapp-perms-enforce'
