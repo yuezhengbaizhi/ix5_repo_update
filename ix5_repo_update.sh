@@ -91,7 +91,7 @@ git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETC
 git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
 # git checkout 'odm-ver-1'
 # Temporarily set expected odm version to 1
-git fetch $LINK 8ea28fddf82a63e9776fe94317233459fe8f3f42 && git cherry-pick FETCH_HEAD
+# git fetch $LINK 8ea28fddf82a63e9776fe94317233459fe8f3f42 && git cherry-pick FETCH_HEAD
 
 # git checkout 'sde-msm8998'
 # [temp] Set QCOM_MEDIA_ROOT for legacy devices
