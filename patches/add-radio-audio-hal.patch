@@ -1,0 +1,55 @@
+From 755c27fa8ff011fa541475185faebc8d405ce67d Mon Sep 17 00:00:00 2001
+From: local__hero <none@none.none>
+Date: Wed, 14 Nov 2018 10:22:36 +0100
+Subject: [PATCH] TESTING: Add radio audio hal
+
+---
+ Android.bp                           | 5 +++++
+ radio/am/1.0/IQcRilAudio.hal         | 6 ++++++
+ radio/am/1.0/IQcRilAudioCallback.hal | 5 +++++
+ 3 files changed, 16 insertions(+)
+ create mode 100644 radio/am/1.0/IQcRilAudio.hal
+ create mode 100644 radio/am/1.0/IQcRilAudioCallback.hal
+
+diff --git a/Android.bp b/Android.bp
+index 4dfd4c8..b37900c 100644
+--- a/Android.bp
++++ b/Android.bp
+@@ -11,6 +11,11 @@ hidl_package_root {
+     path: "vendor/qcom/opensource/interfaces/display",
+ }
+
++hidl_package_root {
++    name: "vendor.qti.hardware.radio.am",
++    path: "vendor/qcom/opensource/interfaces/radio/am",
++}
++
+ hidl_package_root {
+     name: "vendor.qti.hardware.wifi",
+     path: "vendor/qcom/opensource/interfaces/wifi",
+diff --git a/radio/am/1.0/IQcRilAudio.hal b/radio/am/1.0/IQcRilAudio.hal
+new file mode 100644
+index 0000000..3828a94
+--- /dev/null
++++ b/radio/am/1.0/IQcRilAudio.hal
+@@ -0,0 +1,6 @@
++package vendor.qti.hardware.radio.am@1.0;
++import vendor.qti.hardware.radio.am@1.0::IQcRilAudioCallback;
++interface IQcRilAudio {
++    oneway setCallback(IQcRilAudioCallback iQcRilAudioCallback);
++    oneway setError(int32_t error);
++};
+diff --git a/radio/am/1.0/IQcRilAudioCallback.hal b/radio/am/1.0/IQcRilAudioCallback.hal
+new file mode 100644
+index 0000000..d11d2c4
+--- /dev/null
++++ b/radio/am/1.0/IQcRilAudioCallback.hal
+@@ -0,0 +1,5 @@
++package vendor.qti.hardware.radio.am@1.0;
++interface IQcRilAudioCallback {
++    getParameters(string str) generates (string result);
++    setParameters(string str) generates (int32_t success);
++};
+--
+2.19.1
+

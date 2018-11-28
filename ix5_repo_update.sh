@@ -40,6 +40,15 @@ pushd $ANDROOT/packages/apps/Bluetooth
 git am < $PATCHES_PATH/bluetooth-disable-email-test.patch
 popd
 
+pushd $ANDROOT/device/sony/common
+#LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
+#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+#git fetch ix5
+# git checkout 'selinux-enforcing'
+# Switch selinux to enforcing
+#git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
+popd
+
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
