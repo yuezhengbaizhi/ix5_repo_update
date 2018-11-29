@@ -17,9 +17,19 @@ popd () {
     command popd "$@" > /dev/null
 }
 
-echo "+++                                               +++"
-echo "+++      applying ***ix5*** patches               +++"
-echo "+++                                               +++"
+echo ""
+echo "         d8b          888888888"
+echo "         Y8P          888"
+echo "                      888"
+echo "         888 888  888 8888888b."
+echo "         888 ´Y8bd8P´      ´Y88b"
+echo "         888   X88K          888"
+echo "         888 .d8´´8b. Y88b  d88P"
+echo "         888 888  888  ´Y8888P´"
+echo ""
+echo ""
+echo "         applying ix5 patches...                  "
+echo ""
 
 
 pushd $ANDROOT/kernel/sony/msm-4.9/kernel
@@ -110,8 +120,19 @@ popd
 
 # because "set -e" is used above, when we get to this point, we know
 # all patches were applied successfully.
-echo "+++                                               +++"
-echo "+++ all *** ix5 *** patches applied successfully! +++"
-echo "+++                                               +++"
+echo ""
+echo "         d8b          888888888"
+echo "         Y8P          888"
+echo "                      888"
+echo "         888 888  888 8888888b."
+echo "         888 ´Y8bd8P´      ´Y88b"
+echo "         888   X88K          888"
+echo "         888 .d8´´8b. Y88b  d88P"
+echo "         888 888  888  ´Y8888P´"
+echo ""
+echo ""
+echo "         all ix5 patches applied successfully!"
+echo ""
+
 
 set +e
