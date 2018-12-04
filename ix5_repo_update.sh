@@ -53,7 +53,6 @@ popd
 pushd $ANDROOT/device/sony/common
 #LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 #(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-#git fetch ix5
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
 #git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
@@ -62,7 +61,6 @@ popd
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
 
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
@@ -76,7 +74,6 @@ git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETC
 
 # LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-tone"
 # (git remote --verbose | grep -q $LINK) || git remote add sjlls-tone $LINK
-# git fetch sjlls-tone
 
 # Bump CPU frequency and increase min_cpus for video de/encoding
 # git fetch $LINK c657e25fff3887e71b316cff1f7000aa268e5d18 && git cherry-pick FETCH_HEAD
@@ -87,7 +84,6 @@ popd
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
 
 # git checkout 'dt2w'
 # Re-enable tap to wake
@@ -97,7 +93,6 @@ popd
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5
