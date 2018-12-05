@@ -88,6 +88,8 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 # git checkout 'dt2w'
 # Re-enable tap to wake
 git fetch $LINK 90a80f6e42bfd2feca40fbdc8e2b046ff654032a && git cherry-pick FETCH_HEAD
+# Turn dt2w off by default in settings
+git fetch $LINK bc9df19ac1561281f2b10238d9007a803cfaaa06 && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
