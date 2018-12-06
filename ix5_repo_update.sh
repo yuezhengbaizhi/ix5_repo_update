@@ -61,6 +61,7 @@ popd
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
 
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
@@ -84,6 +85,7 @@ popd
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
 
 # git checkout 'dt2w'
 # Re-enable tap to wake
@@ -95,6 +97,7 @@ popd
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5
