@@ -92,6 +92,9 @@ git fetch ix5
 git fetch $LINK 90a80f6e42bfd2feca40fbdc8e2b046ff654032a && git cherry-pick FETCH_HEAD
 # Turn dt2w off by default in settings
 git fetch $LINK bc9df19ac1561281f2b10238d9007a803cfaaa06 && git cherry-pick FETCH_HEAD
+# git checkout 'brightness'
+# Set minimum brightness values to 2 and 1
+git fetch $LINK 449f9eccfd292d968a98d08546062aedbf6e1a2d && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
