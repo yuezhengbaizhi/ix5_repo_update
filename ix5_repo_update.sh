@@ -39,6 +39,13 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 # tone: panel: set min brightness to 1.2mA
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
+
+LINK=$HTTP && LINK+="://github.com/ix5/kernel"
+(git remote --verbose | grep -q $LINK) || git remote add ix5-github $LINK
+git fetch ix5-github
+# git checkout 'gpio-keys'
+# arm64: DT: Tone: Specify gpio_keys label to match key layout config.
+git fetch $LINK 5eaab6c6ede8bed8c2c5ca4aaa22768487d97bbf && git cherry-pick FETCH_HEAD
 popd
 
 # pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
