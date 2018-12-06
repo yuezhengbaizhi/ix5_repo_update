@@ -37,7 +37,8 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 # You need to discard vendor-sony-kernel or the build system will use
 # precompiled dtb files, thus rendering this patch useless
 git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
-# git am < $PATCHES_PATH/defconfig-tone-kagura.patch
+# tone: panel: set min brightness to 1.2mA
+git am < $PATCHES_PATH/panel-minimum-brightness.patch
 popd
 
 # pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
