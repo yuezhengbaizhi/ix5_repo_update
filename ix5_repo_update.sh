@@ -57,6 +57,8 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
 git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
+# TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
+git fetch $LINK 69ca7ba5de30d4b4a85ca2e02620f98f7e1bb402 && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/tone
