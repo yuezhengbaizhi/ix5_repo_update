@@ -52,11 +52,11 @@ git am < $PATCHES_PATH/bluetooth-disable-email-test.patch
 popd
 
 pushd $ANDROOT/device/sony/common
-#LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
-#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
-#git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
+git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/tone
@@ -111,7 +111,7 @@ git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETC
 
 # git checkout 'disable-privapp-perms-enforce'
 # Disable: enforce privapp permissions
-git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
+#git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
 # git checkout 'odm-ver-1'
 # Temporarily set expected odm version to 1
 # git fetch $LINK 8ea28fddf82a63e9776fe94317233459fe8f3f42 && git cherry-pick FETCH_HEAD
