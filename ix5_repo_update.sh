@@ -104,6 +104,9 @@ git fetch $LINK f9e568a080a48131604900f825dc1efe2516a1f9 && git cherry-pick FETC
 git fetch $LINK 7efaf67f0f83bef113e7a18ff39f84a0f928f080 && git cherry-pick FETCH_HEAD
 # Update cameraserver policy
 git fetch $LINK 18370a5bbe8f26ba19165af4c549fc1f01929a5d && git cherry-pick FETCH_HEAD
+#  Allow hostapd to search wifi dirs
+git fetch $LINK 40974d2fdf947ed4630dac794d7adf16c6f47b18 && git cherry-pick FETCH_HEAD
+
 
 # Add contexts for wakeup_gesture
 git fetch $LINK 12aa9f31bb4ab9f422e3e95a2d003b4665bb67b1 && git cherry-pick FETCH_HEAD
