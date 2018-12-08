@@ -54,11 +54,20 @@ popd
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
 git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
 # TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
 git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
+
+LINK=$HTTP && LINK+="://github.com/MarijnS95/device-sony-common"
+(git remote --verbose | grep -q $LINK) || git remote add marijn $LINK
+git fetch marijn
+# manifest: Add tetheroffload config and control hals.
+git fetch $LINK 411e8ce0688e98c871fa90ca515cecf9cdf90d6f && git cherry-pick FETCH_HEAD
+# vendor: init: ipacm.rc: Create ipa directory.
+git fetch $LINK 6db771ad02be4ccf2a5ce68470576d970977b68f && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/tone
