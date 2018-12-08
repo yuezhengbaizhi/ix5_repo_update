@@ -90,19 +90,23 @@ pushd $ANDROOT/device/sony/sepolicy
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 git fetch ix5
+
+# git checkout 'vendor-updates'
 # TEMPORARY: Allow per_mgr and friends to use system binder.
 # Change-Id: I7d7da5eecdc4b469129638de90de92b538eb2b5e
-git fetch $LINK 81eb95426d9a52abf844a2f82ee7d444a96f0914 && git cherry-pick FETCH_HEAD
+git fetch $LINK 5de7bb29e03f515faf704af6178a759e93e034a3 && git cherry-pick FETCH_HEAD
 # More odd permission leaks.
 # Change-Id: I5a828edc4554c85bea6a4d8838c9b39c36f68466
-git fetch $LINK f31ad0d880d62f75448d230bfce42763ffd4d4cf && git cherry-pick FETCH_HEAD
-# Add contexts for wakeup_gesture
-git fetch $LINK f2b5542f61040aabb0aa0853f13f9dd3d214c3f9 && git cherry-pick FETCH_HEAD
-# git checkout 'sepolicy-vendor'
+git fetch $LINK 5bed36fc0a432ddb5cc32891185c06df282f03ec && git cherry-pick FETCH_HEAD
 # TEMP: add more perms
-git fetch $LINK b586ee9f4c89b48d0dfefdb618767a4a28de6854 && git cherry-pick FETCH_HEAD
+git fetch $LINK f9e568a080a48131604900f825dc1efe2516a1f9 && git cherry-pick FETCH_HEAD
 # TEMP: more hacks for qcilam
-git fetch $LINK 187f49147132fed851660d0eb7000d0b8db97cf8 && git cherry-pick FETCH_HEAD
+git fetch $LINK 7efaf67f0f83bef113e7a18ff39f84a0f928f080 && git cherry-pick FETCH_HEAD
+# Update cameraserver policy
+git fetch $LINK 18370a5bbe8f26ba19165af4c549fc1f01929a5d && git cherry-pick FETCH_HEAD
+
+# Add contexts for wakeup_gesture
+git fetch $LINK 12aa9f31bb4ab9f422e3e95a2d003b4665bb67b1 && git cherry-pick FETCH_HEAD
 popd
 
 
