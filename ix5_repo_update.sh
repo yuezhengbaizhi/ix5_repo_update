@@ -91,12 +91,25 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
 git fetch ix5
 
 # git checkout 'vendor-updates'
-# TODO: copy policy properly here
-echo "TODO: COPYME policy!"
+# squashed WRONG master commits
+git fetch $LINK f629f9b038e0fcb3bcfb305cbc246e819fb1ed51 && git cherry-pick FETCH_HEAD
+# TEMPORARY: Allow per_mgr and friends to use system binder, more odd permission leaks
+git fetch $LINK 390d2d97612aabdf7b4531040106d0c532f4169f && git cherry-pick FETCH_HEAD
+# TEMP: Integrate new patches, cleanup
+git fetch $LINK f728d6d94c609c315236b690972f1bf4ec44a940 && git cherry-pick FETCH_HEAD
+# Allow hostapd to search wifi dirs
+git fetch $LINK 83d28b7b8fc74105f26eaf78206b8964d73a055b && git cherry-pick FETCH_HEAD
+# Add contexts for wakeup_gesture
+git fetch $LINK b773f959a24d15cb77f36f0fe830a329651ed5e1 && git cherry-pick FETCH_HEAD
+# Update cameraserver policy
+git fetch $LINK ec25830f189cab04ba49daf37ed68c8f16933027 && git cherry-pick FETCH_HEAD
+# TEMP: add more perms
+git fetch $LINK 8bdabc62535637c25d93a138d5231aa72c875949 && git cherry-pick FETCH_HEAD
+
 
 # git checkout 'dt2w'
 # Add contexts for wakeup_gesture
-git fetch $LINK 2cca619f81b7cfa9fbac9c209db1e752362f7ada && git cherry-pick FETCH_HEAD
+#git fetch $LINK 2cca619f81b7cfa9fbac9c209db1e752362f7ada && git cherry-pick FETCH_HEAD
 popd
 
 
