@@ -1,0 +1,37 @@
+From 53931d1137ab39b5611839ca4285e765ed68461f Mon Sep 17 00:00:00 2001
+From: Felix <none@none.none>
+Date: Mon, 10 Dec 2018 16:26:48 +0100
+Subject: [PATCH] tone: Enable ToF sensor for kagura and keyaki
+
+---
+ arch/arm64/configs/aosp_tone_kagura_defconfig | 1 +
+ arch/arm64/configs/aosp_tone_keyaki_defconfig | 1 +
+ 2 files changed, 2 insertions(+)
+
+diff --git a/arch/arm64/configs/aosp_tone_kagura_defconfig b/arch/arm64/configs/aosp_tone_kagura_defconfig
+index 9a0e9ff75171..03e2f8eb8364 100644
+--- a/arch/arm64/configs/aosp_tone_kagura_defconfig
++++ b/arch/arm64/configs/aosp_tone_kagura_defconfig
+@@ -379,6 +379,7 @@ CONFIG_PON_SOMC_ORG=y
+ CONFIG_INPUT_KEYCHORD=y
+ CONFIG_INPUT_UINPUT=y
+ CONFIG_INPUT_GPIO=y
++CONFIG_INPUT_STMVL53L0=y
+ CONFIG_FPC1145_PLATFORM=y
+ # CONFIG_SERIO is not set
+ # CONFIG_VT is not set
+diff --git a/arch/arm64/configs/aosp_tone_keyaki_defconfig b/arch/arm64/configs/aosp_tone_keyaki_defconfig
+index 2ca5e0a82b0a..339d58e22246 100644
+--- a/arch/arm64/configs/aosp_tone_keyaki_defconfig
++++ b/arch/arm64/configs/aosp_tone_keyaki_defconfig
+@@ -379,6 +379,7 @@ CONFIG_PON_SOMC_ORG=y
+ CONFIG_INPUT_KEYCHORD=y
+ CONFIG_INPUT_UINPUT=y
+ CONFIG_INPUT_GPIO=y
++CONFIG_INPUT_STMVL53L0=y
+ CONFIG_FPC1145_PLATFORM=y
+ # CONFIG_SERIO is not set
+ # CONFIG_VT is not set
+-- 
+2.19.2
+
