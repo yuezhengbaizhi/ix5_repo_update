@@ -104,7 +104,7 @@ git fetch $LINK b773f959a24d15cb77f36f0fe830a329651ed5e1 && git cherry-pick FETC
 # Allow hostapd to search wifi dirs
 git fetch $LINK 83d28b7b8fc74105f26eaf78206b8964d73a055b && git cherry-pick FETCH_HEAD
 # TEMP: Integrate new patches, cleanup
-git fetch $LINK f728d6d94c609c315236b690972f1bf4ec44a940 && git cherry-pick FETCH_HEAD
+git fetch $LINK b8518aef728b4c46c3a5c91e7d862ab96e7cd765 && git cherry-pick FETCH_HEAD
 
 
 # git checkout 'dt2w'
