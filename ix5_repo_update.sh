@@ -70,9 +70,6 @@ git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETC
 # Disable: enforce privapp permissions
 #git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
 
-# gi- checkout 'switch-vendor-qcom-devup-prop'
-# common: switch to qcom.devup to vendor property
-git fetch $LINK c0e2847a0e4f474e35175e6b05529404b616b24d && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/tone
