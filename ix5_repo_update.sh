@@ -78,7 +78,7 @@ git fetch $LINK dba6e6261e1c3b4a7b45216bca748e654946b26b && git cherry-pick FETC
 
 # git checkout 'tether-ipac-fix'
 # marijns ipacm fix
-git fetch $LINK f75d5f0b81e3c011c05c75db7e55ddc22c432f39 && git cherry-pick FETCH_HEAD
+#git fetch $LINK f75d5f0b81e3c011c05c75db7e55ddc22c432f39 && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/tone
@@ -96,7 +96,7 @@ git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETC
 # Make sysfs_rtc path label more generic
 git fetch $LINK 7fb808f463116c450182c0b5c45c400882414d3f && git cherry-pick FETCH_HEAD
 # Revert "media_profiles: increase video recording framerate"
-git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
+#git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
 popd
 
 
