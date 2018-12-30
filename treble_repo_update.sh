@@ -36,10 +36,10 @@ pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 # Revert: TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
-git revert --no-edit 0db7d41ae0d76f4d2a8627622921936d4e0626a8
+git revert --no-edit treble-override-temp-tag
 # Revert: Switch selinux to enforcing
 # (needed because there might be problems with misbehaving GSI sepolicies)
-git revert --no-edit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
+git revert --no-edit selinux-enforcing-temp-tag
 
 # git checkout 'treble-odm'
 # Use oem as /vendor
@@ -62,9 +62,9 @@ popd
 pushd $ANDROOT/system/core
 LINK=$HTTP && LINK+="://android.googlesource.com/platform/system/core"
 # ld.config: Allow /vendor/odm paths in addition to /odm
-git fetch $LINK refs/changes/76/859276/1 && git checkout FETCH_HEAD
+git fetch $LINK refs/changes/76/859276/1 && git cherry-pick FETCH_HEAD
 # init: Load build.prop from /vendor/odm as well
-git fetch $LINK refs/changes/77/859277/1 && git checkout FETCH_HEAD
+git fetch $LINK refs/changes/77/859277/1 && git cherry-pick FETCH_HEAD
 popd
 
 # because "set -e" is used above, when we get to this point, we know

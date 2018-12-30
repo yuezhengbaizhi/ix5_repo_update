@@ -66,8 +66,20 @@ git fetch ix5
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
 git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
+set +e
+if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
+    git tag -d selinux-enforcing-temp-tag
+fi
+set -e
+git tag selinux-enforcing-temp-tag
 # TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
 git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
+set +e
+if [ $(git tag -l "treble-override-temp-tag") ]; then
+    git tag -d treble-override-temp-tag
+fi
+set -e
+git tag treble-override-temp-tag
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5
