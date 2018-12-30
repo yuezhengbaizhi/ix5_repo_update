@@ -62,7 +62,8 @@ popd
 pushd $ANDROOT/system/core
 LINK=$HTTP && LINK+="://android.googlesource.com/platform/system/core"
 # ld.config: Allow /vendor/odm paths in addition to /odm
-git fetch $LINK refs/changes/76/859276/1 && git cherry-pick FETCH_HEAD
+git am < $PATCHES_PATH/system-core-ld.config-allow-vendor.patch
+#git fetch $LINK refs/changes/76/859276/1 && git cherry-pick FETCH_HEAD
 # init: Load build.prop from /vendor/odm as well
 git fetch $LINK refs/changes/77/859277/1 && git cherry-pick FETCH_HEAD
 popd
