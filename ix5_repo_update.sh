@@ -97,9 +97,6 @@ git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETC
 # Disable dm-verity
 git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
 
-# git checkout 'generalize-rtc-path'
-# Make sysfs_rtc path label more generic
-git fetch $LINK 7fb808f463116c450182c0b5c45c400882414d3f && git cherry-pick FETCH_HEAD
 # Revert "media_profiles: increase video recording framerate"
 #git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
 popd
