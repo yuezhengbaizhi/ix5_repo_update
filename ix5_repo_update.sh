@@ -17,6 +17,10 @@ popd () {
     command popd "$@" > /dev/null
 }
 
+apply_commit() {
+    test $(git cat-file -t $1) == commit
+}
+
 echo ""
 echo "         d8b          888888888"
 echo "         Y8P          888"
