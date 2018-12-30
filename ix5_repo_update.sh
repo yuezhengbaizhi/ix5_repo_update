@@ -72,10 +72,6 @@ git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETC
 # Disable: enforce privapp permissions
 #git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
 
-# git checkout 'init-drop-restorecon'
-# Drop dsp restorecon from init, restorecon new persist mountpoint
-git fetch $LINK dba6e6261e1c3b4a7b45216bca748e654946b26b && git cherry-pick FETCH_HEAD
-
 # git checkout 'tether-ipac-fix'
 # marijns ipacm fix
 #git fetch $LINK f75d5f0b81e3c011c05c75db7e55ddc22c432f39 && git cherry-pick FETCH_HEAD
