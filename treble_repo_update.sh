@@ -36,10 +36,10 @@ pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 # Revert: TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
-git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
+git revert --no-edit 0db7d41ae0d76f4d2a8627622921936d4e0626a8
 # Revert: Switch selinux to enforcing
 # (needed because there might be problems with misbehaving GSI sepolicies)
-git fetch revert 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 --no-edit
+git revert --no-edit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
 
 # git checkout 'treble-odm'
 # Use oem as /vendor
