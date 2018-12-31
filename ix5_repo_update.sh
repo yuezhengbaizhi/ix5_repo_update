@@ -41,7 +41,7 @@ echo ""
 
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
-git am < $PATCHES_PATH/bluetooth-disable-email-test.patch
+git am < $PATCHES_PATH/bluetooth-disable-email-test-8.patch
 popd
 
 # pushd $ANDROOT/device/sony/common
