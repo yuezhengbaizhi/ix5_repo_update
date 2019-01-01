@@ -59,6 +59,11 @@ pushd $ANDROOT/packages/apps/Bluetooth
 git am < $PATCHES_PATH/bluetooth-disable-email-test.patch
 popd
 
+pushd $ANDROOT/packages/apps/Launcher3
+# Launcher3QuickStep: Remove useless QuickSearchbar
+git am < $PATCHES_PATH/launcher3quickstep-remove-quicksearchbar.patch
+popd
+
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK

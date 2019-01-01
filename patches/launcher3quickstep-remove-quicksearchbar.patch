@@ -1,0 +1,26 @@
+From c887fcd0d70a822cae2ad9fcd324ca48bbd18e60 Mon Sep 17 00:00:00 2001
+From: Felix <none@none.none>
+Date: Tue, 1 Jan 2019 16:00:18 +0100
+Subject: [PATCH] Launcher3QuickStep: Remove useless QuickSearchbar
+
+Change-Id: I9a41e36fa8e8e9475724b1cb00b8665c16929cd6
+---
+ src/com/android/launcher3/config/BaseFlags.java | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/com/android/launcher3/config/BaseFlags.java b/src/com/android/launcher3/config/BaseFlags.java
+index f4c6380b7..1d5d97199 100644
+--- a/src/com/android/launcher3/config/BaseFlags.java
++++ b/src/com/android/launcher3/config/BaseFlags.java
+@@ -39,7 +39,7 @@ abstract class BaseFlags {
+     public static final boolean LAUNCHER3_SPRING_ICONS = true;
+ 
+     // Feature flag to enable moving the QSB on the 0th screen of the workspace.
+-    public static final boolean QSB_ON_FIRST_SCREEN = true;
++    public static final boolean QSB_ON_FIRST_SCREEN = false;
+     // When enabled the all-apps icon is not added to the hotseat.
+     public static final boolean NO_ALL_APPS_ICON = true;
+ 
+-- 
+2.20.1
+
