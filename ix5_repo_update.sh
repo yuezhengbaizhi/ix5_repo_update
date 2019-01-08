@@ -124,10 +124,16 @@ popd
 
 
 pushd $ANDROOT/system/sepolicy
-LINK=$HTTP && LINK+="://android.googlesource.com/system/sepolicy"
+#LINK=$HTTP && LINK+="://android.googlesource.com/system/sepolicy"
 # HACK: Allow non-vendor PeripheralManager
 # Change-Id: Iab6210b1501c01fa8f9006ce2a358b01a971d5db
-git fetch $LINK  refs/changes/92/861692/1 && git cherry-pick FETCH_HEAD
+#git fetch $LINK  refs/changes/92/861692/1 && git cherry-pick FETCH_HEAD
+LINK=$HTTP && LINK+="://git.ix5.org/felix/aosp-system-sepolicy"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+
+#  HACK: Allow non-vendor PeripheralManager
+git fetch $LINK 6a33ce20131780cc8172f1f99dfd081264d62df1 && git cherry-pick FETCH_HEAD
 popd
 
 
