@@ -123,6 +123,14 @@ git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETC
 popd
 
 
+pushd $ANDROOT/system/sepolicy
+LINK=$HTTP && LINK+="://android.googlesource.com/system/sepolicy"
+# HACK: Allow non-vendor PeripheralManager
+# Change-Id: Iab6210b1501c01fa8f9006ce2a358b01a971d5db
+git fetch $LINK  refs/changes/92/861692/1 && git cherry-pick FETCH_HEAD
+popd
+
+
 pushd $ANDROOT/device/sony/sepolicy
 
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
