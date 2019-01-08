@@ -97,14 +97,6 @@ git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETC
 # marijns ipacm fix
 #git fetch $LINK f75d5f0b81e3c011c05c75db7e55ddc22c432f39 && git cherry-pick FETCH_HEAD
 
-# git checkout 'adreno-symlinks'
-# hardware: adreno: Move symlink creation to phony module.
-git fetch $LINK a69dcd7df5918017c936f5669562d1f9fedcb2c3 && git cherry-pick FETCH_HEAD
-# common: Depend on adreno_symlinks module.
-git fetch $LINK 10718b429c71cd32d6fea2b941e667b0bc9b3e18 && git cherry-pick FETCH_HEAD
-# common: Implement global symlink creation build-module style.
-git fetch $LINK 8c429ae594a353bc8929c982f3d8f00a3469eb7d && git cherry-pick FETCH_HEAD
-
 popd
 
 pushd $ANDROOT/device/sony/tone
