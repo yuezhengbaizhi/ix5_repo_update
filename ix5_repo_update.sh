@@ -64,6 +64,11 @@ pushd $ANDROOT/packages/apps/Launcher3
 git am < $PATCHES_PATH/launcher3quickstep-remove-quicksearchbar.patch
 popd
 
+pushd $ANDROOT/frameworks/base
+# Enable development settings by default
+git am < $PATCHES_PATH/enable-development-settings-by-default.patch
+popd
+
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
