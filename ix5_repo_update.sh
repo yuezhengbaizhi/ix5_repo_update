@@ -130,7 +130,7 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/aosp-system-sepolicy"
 git fetch ix5
 
 #  HACK: Allow non-vendor PeripheralManager
-git fetch $LINK 6a33ce20131780cc8172f1f99dfd081264d62df1 && git cherry-pick FETCH_HEAD
+git fetch $LINK 0dc858312a5606667a7d171a05a954a900a48384 && git cherry-pick FETCH_HEAD
 popd
 
 
