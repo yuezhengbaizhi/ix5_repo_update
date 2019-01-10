@@ -43,11 +43,11 @@ git revert --no-edit selinux-enforcing-temp-tag
 
 # git checkout 'treble-odm'
 # Use oem as /vendor
-git fetch $LINK c2c9551fbe2bd2c796380fa9405ae2f0edecc72d && git cherry-pick FETCH_HEAD
+git fetch $LINK b2ea2ed04d6066a56147d9333cbe19093642ef45 && git cherry-pick FETCH_HEAD
 
 # git checkout 'extra-odm-symlinks'
 # Add extra odm symlinks
-git fetch $LINK 53e7e88230149df582af045489b778d5d7425660 && git cherry-pick FETCH_HEAD
+#git fetch $LINK 0204402094868621e7c859d1521d7f5d4fda3259 && git cherry-pick FETCH_HEAD
 popd
 
 
