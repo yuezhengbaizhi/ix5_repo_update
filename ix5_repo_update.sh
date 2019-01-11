@@ -64,6 +64,14 @@ pushd $ANDROOT/packages/apps/Launcher3
 git am < $PATCHES_PATH/launcher3quickstep-remove-quicksearchbar.patch
 popd
 
+pushd $ANDROOT/packages/apps/ExtendedSettings
+LINK=$HTTP && LINK+="://git.ix5.org/felix/sony-extendedsettings"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+# Add deep sleep preference
+git fetch $LINK d3df653da9e70ece8fca9de64cdc0100baf8b24c && git cherry-pick FETCH_HEAD
+popd
+
 pushd $ANDROOT/frameworks/base
 # Enable development settings by default
 git am < $PATCHES_PATH/enable-development-settings-by-default.patch
