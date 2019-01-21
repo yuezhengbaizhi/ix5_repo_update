@@ -44,7 +44,7 @@ git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 # tone: panel: set min brightness to 1.2mA
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
 #tone: Enable ToF sensor for kagura and keyaki
-git am < $PATCHES_PATH/kernel-enable-tof-sensor.patch
+#git am < $PATCHES_PATH/kernel-enable-tof-sensor.patch
 #tone: Enable RGBCIR sensor
 git am < $PATCHES_PATH/kernel-rgbcr-sensor.patch
 popd
