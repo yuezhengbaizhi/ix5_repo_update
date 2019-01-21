@@ -46,7 +46,7 @@ git am < $PATCHES_PATH/panel-minimum-brightness.patch
 #tone: Enable ToF sensor for kagura and keyaki
 #git am < $PATCHES_PATH/kernel-enable-tof-sensor.patch
 #tone: Enable RGBCIR sensor
-git am < $PATCHES_PATH/kernel-rgbcr-sensor.patch
+#git am < $PATCHES_PATH/kernel-rgbcr-sensor.patch
 popd
 
 # pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
