@@ -77,6 +77,11 @@ pushd $ANDROOT/frameworks/base
 git am < $PATCHES_PATH/enable-development-settings-by-default.patch
 popd
 
+pushd $ANDROOT/build/make
+# releasetools: Allow flashing downgrades
+build-releasetools-Allow-flashing-downgrades.patch
+popd
+
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
@@ -91,7 +96,7 @@ fi
 set -e
 git tag selinux-enforcing-temp-tag
 # TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
-git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
+#git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
 set +e
 if [ $(git tag -l "treble-override-temp-tag") ]; then
     git tag -d treble-override-temp-tag
