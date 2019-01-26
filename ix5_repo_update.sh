@@ -51,7 +51,7 @@ popd
 
 pushd $ANDROOT/build/make
 # releasetools: Allow flashing downgrades
-git am < $PATCHES_PATH/build-releasetools-Allow-flashing-downgrades.patch
+git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
 popd
 
 # pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
@@ -69,21 +69,21 @@ pushd $ANDROOT/packages/apps/Launcher3
 git am < $PATCHES_PATH/launcher3quickstep-remove-quicksearchbar.patch
 popd
 
-pushd $ANDROOT/packages/apps/ExtendedSettings
-LINK=$HTTP && LINK+="://git.ix5.org/felix/sony-extendedsettings"
-(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+#pushd $ANDROOT/packages/apps/ExtendedSettings
+#LINK=$HTTP && LINK+="://git.ix5.org/felix/sony-extendedsettings"
+#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+#git fetch ix5
 # Add deep sleep preference
-git fetch $LINK d3df653da9e70ece8fca9de64cdc0100baf8b24c && git cherry-pick FETCH_HEAD
-popd
+#git fetch $LINK d3df653da9e70ece8fca9de64cdc0100baf8b24c && git cherry-pick FETCH_HEAD
+#popd
 
 pushd $ANDROOT/frameworks/base
 # Enable development settings by default
 git am < $PATCHES_PATH/enable-development-settings-by-default.patch
 
-LINK=$HTTP && LINK+="://github.com/Thespartann/android_frameworks_base_microG/"
-(git remote --verbose | grep -q $LINK) || git remote add thespartann $LINK
-git fetch thespartann
+#LINK=$HTTP && LINK+="://github.com/Thespartann/android_frameworks_base_microG/"
+#(git remote --verbose | grep -q $LINK) || git remote add thespartann $LINK
+#git fetch thespartann
 
 # Support UnifiedNlp (microG)
 #git fetch $LINK 7a99450a7cf44d65a937d9961982b015d0bc4f95 && git cherry-pick FETCH_HEAD
@@ -156,11 +156,11 @@ git fetch $LINK 0dc858312a5606667a7d171a05a954a900a48384 && git cherry-pick FETC
 popd
 
 
-pushd $ANDROOT/device/sony/sepolicy
+#pushd $ANDROOT/device/sony/sepolicy
 
-LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
-(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+#LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
+#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+#git fetch ix5
 
 # TODO: Pick proper commits, branch is WIP right now
 #git checkout ix5/broad-updates
@@ -168,7 +168,7 @@ git fetch ix5
 # git checkout 'dt2w'
 # Add contexts for wakeup_gesture
 #git fetch $LINK 2cca619f81b7cfa9fbac9c209db1e752362f7ada && git cherry-pick FETCH_HEAD
-popd
+#popd
 
 
 pushd $ANDROOT/device/sony/kagura
