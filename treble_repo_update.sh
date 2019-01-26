@@ -35,8 +35,6 @@ popd
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-# Revert: TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
-git revert --no-edit treble-override-temp-tag
 # Revert: Switch selinux to enforcing
 # (needed because there might be problems with misbehaving GSI sepolicies)
 git revert --no-edit selinux-enforcing-temp-tag
