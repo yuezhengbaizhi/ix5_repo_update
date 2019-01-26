@@ -57,6 +57,14 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 git fetch $LINK 025f56891b9d6ec3a86f0c84fab534119a3b2006 && git cherry-pick FETCH_HEAD
 popd
 
+pushd $ANDROOT/device/sony/loire
+LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-loire"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+# git checkout 'treble-odm'
+# Use oem as /vendor
+git fetch $LINK 1170e85e4567e44314eff0b55566957632c8b2bc && git cherry-pick FETCH_HEAD
+popd
+
 pushd $ANDROOT/system/core
 LINK=$HTTP && LINK+="://android.googlesource.com/platform/system/core"
 # ld.config: Allow /vendor/odm paths in addition to /odm
