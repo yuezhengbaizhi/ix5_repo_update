@@ -141,6 +141,17 @@ git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETC
 #git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
 popd
 
+pushd $ANDROOT/device/sony/loire
+LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-loire"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+# git checkout 'disable-verity-no-forceencrypt'
+# Change forceencrypt to encryptable for userdata
+git fetch $LINK 2165decc2b97364348e0ce1ae9d099fc5abab430 && git cherry-pick FETCH_HEAD
+# Disable dm-verity
+git fetch $LINK 740d3882c98a1c698649018ac1ea59e46d6af500 && git cherry-pick FETCH_HEAD
+popd
+
 
 pushd $ANDROOT/system/sepolicy
 #LINK=$HTTP && LINK+="://android.googlesource.com/system/sepolicy"
