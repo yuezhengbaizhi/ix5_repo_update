@@ -54,7 +54,7 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 # git checkout 'treble-odm'
 # Use oem as /vendor
-git fetch $LINK ea176ca5bfa074a21e28b53f4be67b3a86858cda && git cherry-pick FETCH_HEAD
+git fetch $LINK 025f56891b9d6ec3a86f0c84fab534119a3b2006 && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/system/core
