@@ -103,7 +103,7 @@ if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
     git tag -d selinux-enforcing-temp-tag
 fi
 set -e
-#git tag selinux-enforcing-temp-tag
+git tag selinux-enforcing-temp-tag
 # TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
 #git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
 #set +e
