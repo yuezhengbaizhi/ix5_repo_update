@@ -49,6 +49,11 @@ git am < $PATCHES_PATH/panel-minimum-brightness.patch
 #git am < $PATCHES_PATH/kernel-rgbcr-sensor.patch
 popd
 
+pushd $ANDROOT/build/make
+# releasetools: Allow flashing downgrades
+git am < $PATCHES_PATH/build-releasetools-Allow-flashing-downgrades.patch
+popd
+
 # pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
 # Tone: use DRM for display
 # git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
@@ -75,11 +80,15 @@ popd
 pushd $ANDROOT/frameworks/base
 # Enable development settings by default
 git am < $PATCHES_PATH/enable-development-settings-by-default.patch
-popd
 
-pushd $ANDROOT/build/make
-# releasetools: Allow flashing downgrades
-build-releasetools-Allow-flashing-downgrades.patch
+LINK=$HTTP && LINK+="://github.com/Thespartann/android_frameworks_base_microG/"
+(git remote --verbose | grep -q $LINK) || git remote add thespartann $LINK
+git fetch thespartann
+
+# Support UnifiedNlp (microG)
+#git fetch $LINK 7a99450a7cf44d65a937d9961982b015d0bc4f95 && git cherry-pick FETCH_HEAD
+# Add support for fake signatures, enabled per app by dynamic permission
+#git fetch $LINK 4bbf5672df9fbd1c67a1667d8ffa1462f54facd4 && git cherry-pick FETCH_HEAD
 popd
 
 pushd $ANDROOT/device/sony/common
