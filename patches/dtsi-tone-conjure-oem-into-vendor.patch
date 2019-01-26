@@ -1,7 +1,7 @@
 From 6c33a024e04107e2fa561dad24e488ed65e25a24 Mon Sep 17 00:00:00 2001
 From: local__hero <none@none.none>
 Date: Sun, 30 Dec 2018 18:20:16 +0100
-Subject: [PATCH] dtsi: conjure oem into /vendor
+Subject: [PATCH] dtsi: tone: conjure oem into /vendor
 
 ---
  arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi | 6 +++---

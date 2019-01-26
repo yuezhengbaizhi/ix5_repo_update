@@ -29,7 +29,8 @@ echo "              applying treble patches..."
 echo ""
 
 pushd $ANDROOT/kernel/sony/msm-4.9/kernel
-git am < $PATCHES_PATH/kernel-dtsi-vendor-odm.patch
+git am < $PATCHES_PATH/dtsi-tone-conjure-oem-into-vendor.patch
+git am < $PATCHES_PATH/dtsi-loire-conjure-oem-into-vendor.patch
 popd
 
 pushd $ANDROOT/device/sony/common
