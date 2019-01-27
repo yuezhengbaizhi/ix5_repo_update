@@ -88,4 +88,18 @@ echo ""
 echo "        all treble patches applied successfully!"
 echo ""
 
+
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo ""
+echo "        DO NOT FORGET TO UPDATE SEPOLICY!!!!!"
+echo ""
+echo "         ELSE YOUR DEVICE WILL NOT BOOT!!!!"
+echo ""
+
 set +e
