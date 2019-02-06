@@ -101,5 +101,8 @@ echo "        DO NOT FORGET TO UPDATE SEPOLICY!!!!!"
 echo ""
 echo "         ELSE YOUR DEVICE WILL NOT BOOT!!!!"
 echo ""
+echo ""
+echo "          ALSO COPY THE ODM FILES!!!!"
+echo ""
 
 set +e
