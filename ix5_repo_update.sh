@@ -32,7 +32,7 @@ echo "         888 .d8´´8b. Y88b  d88P"
 echo "         888 888  888  ´Y8888P´"
 echo ""
 echo ""
-echo "         applying ix5 patches...                  "
+echo "         applying ix5 patches..."
 echo ""
 
 
@@ -43,10 +43,6 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 # tone: panel: set min brightness to 1.2mA
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
-#tone: Enable ToF sensor for kagura and keyaki
-#git am < $PATCHES_PATH/kernel-enable-tof-sensor.patch
-#tone: Enable RGBCIR sensor
-#git am < $PATCHES_PATH/kernel-rgbcr-sensor.patch
 popd
 
 pushd $ANDROOT/build/make
@@ -68,14 +64,6 @@ pushd $ANDROOT/packages/apps/Launcher3
 # Launcher3QuickStep: Remove useless QuickSearchbar
 git am < $PATCHES_PATH/launcher3quickstep-remove-quicksearchbar.patch
 popd
-
-#pushd $ANDROOT/packages/apps/ExtendedSettings
-#LINK=$HTTP && LINK+="://git.ix5.org/felix/sony-extendedsettings"
-#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-#git fetch ix5
-# Add deep sleep preference
-#git fetch $LINK d3df653da9e70ece8fca9de64cdc0100baf8b24c && git cherry-pick FETCH_HEAD
-#popd
 
 pushd $ANDROOT/frameworks/base
 # Enable development settings by default
@@ -104,25 +92,10 @@ if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
 fi
 set -e
 git tag selinux-enforcing-temp-tag
-# TEMP: Set PRODUCT_FULL_TREBLE_OVERRIDE false
-#git fetch $LINK 0db7d41ae0d76f4d2a8627622921936d4e0626a8 && git cherry-pick FETCH_HEAD
-#set +e
-#if [ $(git tag -l "treble-override-temp-tag") ]; then
-#    git tag -d treble-override-temp-tag
-#fi
-#set -e
-#git tag treble-override-temp-tag
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5
 git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETCH_HEAD
-# git checkout 'disable-privapp-perms-enforce'
-# Disable: enforce privapp permissions
-#git fetch $LINK 1418cfe786dbd046c13a0e2783af954056a45094 && git cherry-pick FETCH_HEAD
-
-# git checkout 'tether-ipac-fix'
-# marijns ipacm fix
-#git fetch $LINK f75d5f0b81e3c011c05c75db7e55ddc22c432f39 && git cherry-pick FETCH_HEAD
 
 popd
 
