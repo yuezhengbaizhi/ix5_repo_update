@@ -183,7 +183,7 @@ git fetch $LINK bc9df19ac1561281f2b10238d9007a803cfaaa06 && git cherry-pick FETC
 git fetch $LINK 449f9eccfd292d968a98d08546062aedbf6e1a2d && git cherry-pick FETCH_HEAD
 # git checkout 'rgbcir'
 # Add preliminary RGBCIR calibration file
-git fetch $LINK a0253f3de75c52bccb9275ee7eda6cd2f9db539c && git cherry-pick FETCH_HEAD
+#git fetch $LINK a0253f3de75c52bccb9275ee7eda6cd2f9db539c && git cherry-pick FETCH_HEAD
 popd
 
 # because "set -e" is used above, when we get to this point, we know
