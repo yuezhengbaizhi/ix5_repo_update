@@ -41,8 +41,8 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 git revert --no-edit selinux-enforcing-temp-tag
 
 # git checkout 'treble-odm'
-# Use oem as /vendor
-git fetch $LINK b2ea2ed04d6066a56147d9333cbe19093642ef45 && git cherry-pick FETCH_HEAD
+# Use oem as /vendor and add treble quirks
+git fetch $LINK 2574dbad7d7483911c50f9a8a6db96260417436f && git cherry-pick FETCH_HEAD
 
 # git checkout 'extra-odm-symlinks'
 # Add extra odm symlinks
