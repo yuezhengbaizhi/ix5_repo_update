@@ -153,20 +153,6 @@ git fetch $LINK 740d3882c98a1c698649018ac1ea59e46d6af500 && git cherry-pick FETC
 popd
 
 
-pushd $ANDROOT/system/sepolicy
-#LINK=$HTTP && LINK+="://android.googlesource.com/system/sepolicy"
-# HACK: Allow non-vendor PeripheralManager
-# Change-Id: Iab6210b1501c01fa8f9006ce2a358b01a971d5db
-#git fetch $LINK  refs/changes/92/861692/1 && git cherry-pick FETCH_HEAD
-LINK=$HTTP && LINK+="://git.ix5.org/felix/aosp-system-sepolicy"
-(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
-
-#  HACK: Allow non-vendor PeripheralManager
-git fetch $LINK 0dc858312a5606667a7d171a05a954a900a48384 && git cherry-pick FETCH_HEAD
-popd
-
-
 #pushd $ANDROOT/device/sony/sepolicy
 
 #LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"

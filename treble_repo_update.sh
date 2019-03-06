@@ -75,6 +75,20 @@ LINK=$HTTP && LINK+="://android.googlesource.com/platform/system/core"
 git fetch $LINK refs/changes/77/859277/1 && git cherry-pick FETCH_HEAD
 popd
 
+pushd $ANDROOT/system/sepolicy
+#LINK=$HTTP && LINK+="://android.googlesource.com/system/sepolicy"
+# HACK: Allow non-vendor PeripheralManager
+# Change-Id: Iab6210b1501c01fa8f9006ce2a358b01a971d5db
+#git fetch $LINK  refs/changes/92/861692/1 && git cherry-pick FETCH_HEAD
+LINK=$HTTP && LINK+="://git.ix5.org/felix/aosp-system-sepolicy"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+
+#  HACK: Allow non-vendor PeripheralManager
+git fetch $LINK 0dc858312a5606667a7d171a05a954a900a48384 && git cherry-pick FETCH_HEAD
+popd
+
+
 # because "set -e" is used above, when we get to this point, we know
 # all patches were applied successfully.
 echo ""
