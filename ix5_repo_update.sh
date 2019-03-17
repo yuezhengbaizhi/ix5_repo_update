@@ -94,8 +94,8 @@ set -e
 git tag selinux-enforcing-temp-tag
 
 # git checkout 'add-vendor-ix5'
-# Include vendor-ix5
-git fetch $LINK b115cc3f7f98c1d26a6bd8b84422706128e3d0b7 && git cherry-pick FETCH_HEAD
+# Include vendor-ix5 via common.mk
+git fetch $LINK 891d072a7e515d7e69b075b587a7baf569b54b14 && git cherry-pick FETCH_HEAD
 
 popd
 
