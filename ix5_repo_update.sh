@@ -97,6 +97,10 @@ git tag selinux-enforcing-temp-tag
 # Include vendor-ix5 via common.mk
 git fetch $LINK 891d072a7e515d7e69b075b587a7baf569b54b14 && git cherry-pick FETCH_HEAD
 
+# git checkout 'vintf-enforce'
+# Enforce usage of vintf manifest
+git fetch $LINK 5df1a36972a8709f76463f8fe184d472e75d93a1 && git cherry-pick FETCH_HEAD
+
 popd
 
 pushd $ANDROOT/device/sony/tone
