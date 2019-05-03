@@ -101,6 +101,10 @@ git fetch $LINK 891d072a7e515d7e69b075b587a7baf569b54b14 && git cherry-pick FETC
 # Enforce usage of vintf manifest
 git fetch $LINK 5df1a36972a8709f76463f8fe184d472e75d93a1 && git cherry-pick FETCH_HEAD
 
+# git checkout 'devstart-adsp-cdsp'
+# init: Boot DSP before SLPI again
+git fetch $LINK a5a6c51672fcf14f639c7329c0e3ccd26014f7b7 && git cherry-pick FETCH_HEAD
+
 popd
 
 pushd $ANDROOT/device/sony/tone
