@@ -103,7 +103,7 @@ git fetch $LINK 5df1a36972a8709f76463f8fe184d472e75d93a1 && git cherry-pick FETC
 
 # git checkout 'devstart-adsp-cdsp'
 # init: Boot DSP before SLPI again
-git fetch $LINK 4d949e7441d3ec1ef7075fe0a5b8e69ed37cfa05 && git cherry-pick FETCH_HEAD
+git fetch $LINK fdedc87eca5c9d3dad9f9da6fc806898b4f3852f && git cherry-pick FETCH_HEAD
 
 popd
 
