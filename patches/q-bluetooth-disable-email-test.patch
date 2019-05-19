@@ -1,0 +1,25 @@
+From b5d50e855d461bea3c4a228239852e0e45ee4504 Mon Sep 17 00:00:00 2001
+From: Felix <none@none.none>
+Date: Tue, 6 Nov 2018 22:28:01 +0100
+Subject: [PATCH] Bluetooth tests: remove email dependency
+
+---
+ tests/unit/Android.mk | 1 -
+ 1 file changed, 1 deletion(-)
+
+diff --git a/tests/unit/Android.mk b/tests/unit/Android.mk
+index ef948a6e..f3c163e3 100644
+--- a/tests/unit/Android.mk
++++ b/tests/unit/Android.mk
+@@ -14,7 +14,6 @@ LOCAL_JAVA_LIBRARIES := \
+     android.test.mock
+ 
+ LOCAL_STATIC_JAVA_LIBRARIES :=  \
+-    com.android.emailcommon \
+    androidx.test.rules \
+     mockito-target \
+    androidx.test.espresso.intents
+-- 
+2.19.1
+
+
