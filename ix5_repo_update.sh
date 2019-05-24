@@ -17,8 +17,30 @@ popd () {
     command popd "$@" > /dev/null
 }
 
+commit_exists() {
+    _sha1=$1
+    git rev-parse --quiet --verify $_sha1^{commit}
+}
+
 apply_commit() {
-    test $(git cat-file -t $1) == commit
+    _commit=$1
+    if commit_exists $_commit
+    then
+        git cherry-pick $_commit
+    else
+        git fetch $LINK $_commit && git cherry-pick $_commit
+    fi
+}
+
+apply_gerrit_cl_commit() {
+    _cl=$1
+    _commit=$2
+    if commit_exists $_commit
+    then
+        git cherry-pick $_commit
+    else
+        git fetch $LINK $_cl && git cherry-pick FETCH_HEAD
+    fi
 }
 
 echo ""
@@ -74,9 +96,9 @@ git am < $PATCHES_PATH/enable-development-settings-by-default.patch
 #git fetch thespartann
 
 # Support UnifiedNlp (microG)
-#git fetch $LINK 7a99450a7cf44d65a937d9961982b015d0bc4f95 && git cherry-pick FETCH_HEAD
+#apply_commit 7a99450a7cf44d65a937d9961982b015d0bc4f95
 # Add support for fake signatures, enabled per app by dynamic permission
-#git fetch $LINK 4bbf5672df9fbd1c67a1667d8ffa1462f54facd4 && git cherry-pick FETCH_HEAD
+#apply_commit 4bbf5672df9fbd1c67a1667d8ffa1462f54facd4
 popd
 
 pushd $ANDROOT/device/sony/common
@@ -85,7 +107,7 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 git fetch ix5
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
-git fetch $LINK 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536 && git cherry-pick FETCH_HEAD
+apply_commit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
 set +e
 if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
     git tag -d selinux-enforcing-temp-tag
@@ -95,15 +117,15 @@ git tag selinux-enforcing-temp-tag
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5 via common.mk
-git fetch $LINK 891d072a7e515d7e69b075b587a7baf569b54b14 && git cherry-pick FETCH_HEAD
+apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 
 # git checkout 'vintf-enforce'
 # Enforce usage of vintf manifest
-git fetch $LINK 5df1a36972a8709f76463f8fe184d472e75d93a1 && git cherry-pick FETCH_HEAD
+apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
 # git checkout 'devstart-adsp-cdsp'
 # init: Boot DSP before SLPI again
-git fetch $LINK 290522627fbc8419e95f3bb93e30f0ef41a2be0d && git cherry-pick FETCH_HEAD
+apply_commit 290522627fbc8419e95f3bb93e30f0ef41a2be0d
 
 popd
 
@@ -114,9 +136,9 @@ git fetch ix5
 
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
-git fetch $LINK af592265685fddf24100cbc1fdcdcb5bfd2260c1 && git cherry-pick FETCH_HEAD
+apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 # Disable dm-verity
-git fetch $LINK b611c8d91a374f246be393d89f20bbf3fc2ab9f7 && git cherry-pick FETCH_HEAD
+apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
 
 # Revert "media_profiles: increase video recording framerate"
 #git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
@@ -128,9 +150,9 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-loire"
 git fetch ix5
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
-git fetch $LINK 2165decc2b97364348e0ce1ae9d099fc5abab430 && git cherry-pick FETCH_HEAD
+apply_commit 2165decc2b97364348e0ce1ae9d099fc5abab430
 # Disable dm-verity
-git fetch $LINK 740d3882c98a1c698649018ac1ea59e46d6af500 && git cherry-pick FETCH_HEAD
+apply_commit 740d3882c98a1c698649018ac1ea59e46d6af500
 popd
 
 
@@ -145,7 +167,7 @@ popd
 
 # git checkout 'dt2w'
 # Add contexts for wakeup_gesture
-#git fetch $LINK 2cca619f81b7cfa9fbac9c209db1e752362f7ada && git cherry-pick FETCH_HEAD
+#apply_commit 2cca619f81b7cfa9fbac9c209db1e752362f7ada
 #popd
 
 
@@ -156,15 +178,15 @@ git fetch ix5
 
 # git checkout 'dt2w'
 # Re-enable tap to wake
-git fetch $LINK 90a80f6e42bfd2feca40fbdc8e2b046ff654032a && git cherry-pick FETCH_HEAD
+apply_commit 90a80f6e42bfd2feca40fbdc8e2b046ff654032a
 # Turn dt2w off by default in settings
-git fetch $LINK bc9df19ac1561281f2b10238d9007a803cfaaa06 && git cherry-pick FETCH_HEAD
+apply_commit bc9df19ac1561281f2b10238d9007a803cfaaa06
 # git checkout 'brightness'
 # Set minimum brightness values to 2 and 1
-git fetch $LINK 449f9eccfd292d968a98d08546062aedbf6e1a2d && git cherry-pick FETCH_HEAD
+apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
 # git checkout 'rgbcir'
 # Add preliminary RGBCIR calibration file
-#git fetch $LINK a0253f3de75c52bccb9275ee7eda6cd2f9db539c && git cherry-pick FETCH_HEAD
+#apply_commit a0253f3de75c52bccb9275ee7eda6cd2f9db539c
 popd
 
 # because "set -e" is used above, when we get to this point, we know
