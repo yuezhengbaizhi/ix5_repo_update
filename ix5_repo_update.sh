@@ -123,10 +123,6 @@ apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
-# git checkout 'devstart-adsp-cdsp'
-# init: Boot DSP before SLPI again
-apply_commit 290522627fbc8419e95f3bb93e30f0ef41a2be0d
-
 popd
 
 pushd $ANDROOT/device/sony/tone
