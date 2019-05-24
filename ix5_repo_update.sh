@@ -123,6 +123,14 @@ apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
+# TODO: Remove me once merged into p-mr1
+# init: Boot DSP before SLPI again
+apply_commit c7b0275c3ea0a9728e759b79d50eacfe71d65e58
+# init: Enable adsprpcd instead of starting
+apply_commit b3160f2518bf73b745a1ddef375fe7e67613d245
+# Permissions: Move source files to rootdir/vendor
+apply_commit 18efa4e1fe0d85f7c774b619199d8d329cbb8317
+
 popd
 
 pushd $ANDROOT/device/sony/tone
