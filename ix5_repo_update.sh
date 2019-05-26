@@ -131,6 +131,9 @@ apply_commit b3160f2518bf73b745a1ddef375fe7e67613d245
 # Permissions: Move source files to rootdir/vendor
 apply_commit 18efa4e1fe0d85f7c774b619199d8d329cbb8317
 
+# init: Remove verity statements
+apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
+
 popd
 
 pushd $ANDROOT/device/sony/tone
