@@ -1,14 +1,15 @@
-From b5d50e855d461bea3c4a228239852e0e45ee4504 Mon Sep 17 00:00:00 2001
-From: Felix <none@none.none>
-Date: Tue, 6 Nov 2018 22:28:01 +0100
-Subject: [PATCH] Bluetooth tests: remove email dependency
+From d5ac64b1777aa868c1f4df83082a28eb917f16fe Mon Sep 17 00:00:00 2001
+From: Anonymous <none@none.none>
+Date: Sun, 26 May 2019 19:56:07 +0200
+Subject: [PATCH] Bluetoth tests: Remove emailcommon dependency
 
+Change-Id: I9294ee43a508316d1951b8611c7f25cf92a1cf1c
 ---
  tests/unit/Android.mk | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/tests/unit/Android.mk b/tests/unit/Android.mk
-index ef948a6e..f3c163e3 100644
+index 98c88d40..0ba6f3771 100644
 --- a/tests/unit/Android.mk
 +++ b/tests/unit/Android.mk
 @@ -14,7 +14,6 @@ LOCAL_JAVA_LIBRARIES := \
@@ -16,10 +17,9 @@ index ef948a6e..f3c163e3 100644
  
  LOCAL_STATIC_JAVA_LIBRARIES :=  \
 -    com.android.emailcommon \
-    androidx.test.rules \
+     androidx.test.rules \
      mockito-target \
-    androidx.test.espresso.intents
+     androidx.test.espresso.intents
 -- 
-2.19.1
-
+2.21.0
 
