@@ -62,7 +62,7 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 # Enable wakeup_gesture in dtsi table
 # You need to discard vendor-sony-kernel or the build system will use
 # precompiled dtb files, thus rendering this patch useless
-git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
+#git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 # tone: panel: set min brightness to 1.2mA
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
 popd
@@ -117,7 +117,7 @@ git tag selinux-enforcing-temp-tag
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5 via common.mk
-apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
+#apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 
 # git checkout 'vintf-enforce'
 # Enforce usage of vintf manifest
@@ -125,7 +125,7 @@ apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
 # git checkout 'devstart-adsp-cdsp'
 # init: Boot DSP before SLPI again
-apply_commit fdedc87eca5c9d3dad9f9da6fc806898b4f3852f
+#apply_commit fdedc87eca5c9d3dad9f9da6fc806898b4f3852f
 
 popd
 
@@ -178,9 +178,9 @@ git fetch ix5
 
 # git checkout 'dt2w'
 # Re-enable tap to wake
-apply_commit 90a80f6e42bfd2feca40fbdc8e2b046ff654032a
+#apply_commit 90a80f6e42bfd2feca40fbdc8e2b046ff654032a
 # Turn dt2w off by default in settings
-apply_commit bc9df19ac1561281f2b10238d9007a803cfaaa06
+#apply_commit bc9df19ac1561281f2b10238d9007a803cfaaa06
 # git checkout 'brightness'
 # Set minimum brightness values to 2 and 1
 apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
