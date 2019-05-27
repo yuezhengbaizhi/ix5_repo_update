@@ -70,6 +70,8 @@ popd
 pushd $ANDROOT/build/make
 # releasetools: Allow flashing downgrades
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
+# releasetools: Skip adding compatiblity.zip
+git am < $PATCHES_PATH/build-releasetools-skip-compatiblity-zip.patch
 popd
 
 # pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
