@@ -107,13 +107,13 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 git fetch ix5
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
-apply_commit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
-set +e
-if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
-    git tag -d selinux-enforcing-temp-tag
-fi
-set -e
-git tag selinux-enforcing-temp-tag
+#apply_commit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
+#set +e
+#if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
+#    git tag -d selinux-enforcing-temp-tag
+#fi
+#set -e
+#git tag selinux-enforcing-temp-tag
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5 via common.mk
