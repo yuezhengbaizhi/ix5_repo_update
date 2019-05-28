@@ -72,11 +72,6 @@ pushd $ANDROOT/build/make
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
 popd
 
-# pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
-# Tone: use DRM for display
-# git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
-# popd
-
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
 git am < $PATCHES_PATH/q-bluetooth-disable-email-test.patch
@@ -90,42 +85,20 @@ popd
 pushd $ANDROOT/frameworks/base
 # Enable development settings by default
 git am < $PATCHES_PATH/enable-development-settings-by-default.patch
-
-#LINK=$HTTP && LINK+="://github.com/Thespartann/android_frameworks_base_microG/"
-#(git remote --verbose | grep -q $LINK) || git remote add thespartann $LINK
-#git fetch thespartann
-
-# Support UnifiedNlp (microG)
-#apply_commit 7a99450a7cf44d65a937d9961982b015d0bc4f95
-# Add support for fake signatures, enabled per app by dynamic permission
-#apply_commit 4bbf5672df9fbd1c67a1667d8ffa1462f54facd4
 popd
 
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 git fetch ix5
-# git checkout 'selinux-enforcing'
-# Switch selinux to enforcing
-#apply_commit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
-#set +e
-#if [ $(git tag -l "selinux-enforcing-temp-tag") ]; then
-#    git tag -d selinux-enforcing-temp-tag
-#fi
-#set -e
-#git tag selinux-enforcing-temp-tag
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5 via common.mk
-#apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
+apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 
 # git checkout 'vintf-enforce'
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
-
-# git checkout 'devstart-adsp-cdsp'
-# init: Boot DSP before SLPI again
-#apply_commit fdedc87eca5c9d3dad9f9da6fc806898b4f3852f
 
 # init: Remove verity statements
 apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
@@ -157,22 +130,6 @@ apply_commit 2165decc2b97364348e0ce1ae9d099fc5abab430
 # Disable dm-verity
 apply_commit 740d3882c98a1c698649018ac1ea59e46d6af500
 popd
-
-
-#pushd $ANDROOT/device/sony/sepolicy
-
-#LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
-#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-#git fetch ix5
-
-# TODO: Pick proper commits, branch is WIP right now
-#git checkout ix5/broad-updates
-
-# git checkout 'dt2w'
-# Add contexts for wakeup_gesture
-#apply_commit 2cca619f81b7cfa9fbac9c209db1e752362f7ada
-#popd
-
 
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
@@ -210,4 +167,3 @@ echo ""
 
 
 set +e
-
