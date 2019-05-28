@@ -70,14 +70,7 @@ popd
 pushd $ANDROOT/build/make
 # releasetools: Allow flashing downgrades
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
-# releasetools: Skip adding compatiblity.zip
-git am < $PATCHES_PATH/build-releasetools-skip-compatiblity-zip.patch
 popd
-
-# pushd $ANDROOT/kernel/sony/msm-4.9/kernel/arch/arm64/configs/sony
-# Tone: use DRM for display
-# git am < $PATCHES_PATH/defconfig-tone-use-drm.patch
-# popd
 
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
@@ -135,7 +128,6 @@ apply_commit 18efa4e1fe0d85f7c774b619199d8d329cbb8317
 
 # init: Remove verity statements
 apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
-
 popd
 
 pushd $ANDROOT/device/sony/tone
@@ -148,9 +140,6 @@ git fetch ix5
 apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 # Disable dm-verity
 apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
-
-# Revert "media_profiles: increase video recording framerate"
-#git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
 popd
 
 pushd $ANDROOT/device/sony/loire
@@ -163,22 +152,6 @@ apply_commit 2165decc2b97364348e0ce1ae9d099fc5abab430
 # Disable dm-verity
 apply_commit 740d3882c98a1c698649018ac1ea59e46d6af500
 popd
-
-
-#pushd $ANDROOT/device/sony/sepolicy
-
-#LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
-#(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-#git fetch ix5
-
-# TODO: Pick proper commits, branch is WIP right now
-#git checkout ix5/broad-updates
-
-# git checkout 'dt2w'
-# Add contexts for wakeup_gesture
-#apply_commit 2cca619f81b7cfa9fbac9c209db1e752362f7ada
-#popd
-
 
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
