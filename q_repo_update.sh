@@ -115,9 +115,6 @@ git fetch ix5
 apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 # Disable dm-verity
 apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
-
-# Revert "media_profiles: increase video recording framerate"
-#git revert a8cf2908fa80def497f9f312edd86402954627b8 --no-edit
 popd
 
 pushd $ANDROOT/device/sony/loire

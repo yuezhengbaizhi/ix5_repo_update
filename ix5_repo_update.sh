@@ -153,6 +153,7 @@ apply_commit 2165decc2b97364348e0ce1ae9d099fc5abab430
 apply_commit 740d3882c98a1c698649018ac1ea59e46d6af500
 popd
 
+
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
