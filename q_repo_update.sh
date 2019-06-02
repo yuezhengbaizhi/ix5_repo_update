@@ -134,6 +134,22 @@ apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
+# git checkout 'vintf-healthd'
+# common-treble: Remove healthd vintf exclude
+apply_commit a6b628e6a2b4c33233860960d874a176c340229b
+
+# git checkout 'vintf-remove-mediacas'
+# vintf: Remove missing IMediaCas HAL
+apply_commit c6bbe23fe0fee7522f3a0c1fca581bbbd2456544
+
+# git checkout 'vintf-target-level-4'
+# vintf: Set target-level=4 for Q
+apply_commit 0a21146905c7f9bfbd3791855b791d6642345fb2
+
+# git checkout 'vintf-radio-1-1-'
+# vintf: Lower radio version to 1.1
+apply_commit 25d4d23c987cb6ff63c0462ff6ced0d389deec7b
+
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-common"
 # TODO: Remove me once merged into Q/master
 
