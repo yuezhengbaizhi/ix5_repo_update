@@ -86,6 +86,10 @@ popd
 pushd $ANDROOT/build/make
 # releasetools: Allow flashing downgrades
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
+
+LINK=$HTTP && LINK+="://android.googlesource.com/platform/build"
+# core/main: Strip bitness before existence check
+apply_gerrit_cl_commit refs/changes/26/975126/2 0cad187889d47e3555b60fcc822a5cba6d15387f
 popd
 
 pushd $ANDROOT/build/soong
