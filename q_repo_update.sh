@@ -165,6 +165,42 @@ apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
 apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
 popd
 
+
+pushd $ANDROOT/device/sony/sepolicy
+LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+
+# git checkout 'q-sepolicy-version'
+# Q: TEMP: Set sepolicy version to match master
+apply_commit 64501e76d4daced00ef64f4a9bb08e99b7ad650e
+
+# git checkout 'toybox-vendor-init'
+# Add vendor_toolbox context
+apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
+# vendor_toolbox: Allow removing xattr from /persist
+apply_commit f8f0e99578b58e48c5973f07cdf58168e933ed12
+# vendor_init: Strip unneeded toybox-related permissions
+apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
+
+# git checkout 'kernel-socket'
+# kernel: debugfs_wlan only in debug builds
+apply_commit 39f64b7aada6875a74b82cec16432d0b97d49e6f
+
+# git checkout 'remove-dupe-idc-keylayout'
+# Remove duplicated idc file defs
+apply_commit e4c343496192802e215790a0b15d69e9f7fd10cd
+
+# git checkout 'remove-nontreble-remnants'
+# netutils: Remove unused legacy access
+apply_commit 7f708f5aea5babb8009be49f1e5b4094cfff21ed
+
+# git checkout 'genfscon-remove-sysfs-net'
+# genfscon: Remove duplicate sysfs_net entries
+apply_commit c086d8a5bd1daa4d27717154e76c97044c8e958c
+popd
+
+
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
