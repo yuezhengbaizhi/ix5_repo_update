@@ -87,6 +87,11 @@ pushd $ANDROOT/frameworks/base
 git am < $PATCHES_PATH/enable-development-settings-by-default.patch
 popd
 
+pushd $ANDROOT/hardware/interfaces
+# FIXME: compatibility: Allow radio@1.1
+git am < $PATCHES_PATH/hardware-interfaces-allow-radio-1-1-.patch
+popd
+
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
