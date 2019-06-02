@@ -238,17 +238,6 @@ apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
 popd
 
-pushd $ANDROOT/device/sony/loire
-LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-loire"
-(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
-# git checkout 'disable-verity-no-forceencrypt'
-# Change forceencrypt to encryptable for userdata
-apply_commit 2165decc2b97364348e0ce1ae9d099fc5abab430
-# Disable dm-verity
-apply_commit 740d3882c98a1c698649018ac1ea59e46d6af500
-popd
-
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
