@@ -1,0 +1,27 @@
+From f8f6dba8eb26d7fe38abcf0f16b6861cefe99932 Mon Sep 17 00:00:00 2001
+From: Anonymous <none@none.none>
+Date: Sun, 2 Jun 2019 02:14:53 +0200
+Subject: [PATCH] KernelConfig: Fix BUILD_KERNEL
+
+---
+ KernelConfig.mk | 4 +---
+ 1 file changed, 1 insertion(+), 3 deletions(-)
+
+diff --git a/KernelConfig.mk b/KernelConfig.mk
+index 73c3f6b..365e095 100644
+--- a/KernelConfig.mk
++++ b/KernelConfig.mk
+@@ -12,9 +12,7 @@
+ # See the License for the specific language governing permissions and
+ # limitations under the License.
+ 
+-BUILD_KERNEL := false
+-
+-ifeq ($(BUILD_KERNEL),false)
++ifneq ($(BUILD_KERNEL),true)
+ 
+ LOCAL_KERNEL := $(KERNEL_PATH)/common-kernel/kernel-dtb-$(TARGET_DEVICE)
+ 
+-- 
+2.21.0
+

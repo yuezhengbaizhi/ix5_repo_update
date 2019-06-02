@@ -67,6 +67,11 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
 popd
 
+pushd $ANDROOT/kernel/sony/msm-4.9/common-kernel
+# KernelConfig: Fix BUILD_KERNEL
+git am < $PATCHES_PATH/q-common-kernel-fix-build-kernel-var.patch
+popd
+
 pushd $ANDROOT/build/make
 # releasetools: Allow flashing downgrades
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
