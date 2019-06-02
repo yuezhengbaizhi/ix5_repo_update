@@ -238,6 +238,20 @@ apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
 popd
 
+# git checkout 'q-bdroid-property-length'
+# bdroid_buildcfg: Fix PROPERTY_VALUE_MAX definition
+apply_commit cf984bcab9ff623d07ea838b5f393281f157f1af
+
+# git checkout 'q-product-build-bootimg'
+# platform: Build boot image
+apply_commit 19f8a85dcd7d2f1412579b1f0d8da7400552882f
+
+# git checkout 'treble-buildvars'
+# platform/Platform: Enable VNDK, linker ns
+apply_commit 25e58e5989bb4f50845e83b0349811102b5a69b3
+popd
+
+
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
