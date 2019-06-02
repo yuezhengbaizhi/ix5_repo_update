@@ -125,11 +125,15 @@ git tag selinux-enforcing-temp-tag
 # Include vendor-ix5 via common.mk
 apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 
+# init: Remove verity statements
+apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
+
+# TODO: Remove me once merged into p-mr1
+
 # git checkout 'vintf-enforce'
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
-# TODO: Remove me once merged into p-mr1
 # init: Boot DSP before SLPI again
 apply_commit c7b0275c3ea0a9728e759b79d50eacfe71d65e58
 # init: Enable adsprpcd instead of starting
@@ -137,8 +141,50 @@ apply_commit b3160f2518bf73b745a1ddef375fe7e67613d245
 # Permissions: Move source files to rootdir/vendor
 apply_commit 18efa4e1fe0d85f7c774b619199d8d329cbb8317
 
-# init: Remove verity statements
-apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
+# https://github.com/sonyxperiadev/device-sony-common/pull/617
+# odm: Use PRODUCT_ODM_PROPERTIES for version
+apply_pull_commit 617 ed050fa6f371128d4b1524e3e2c90e89eafb5de2
+# odm: Only build if SONY_BUILD_ODM is set
+apply_pull_commit 617 355e63a09cc28fe3d70587cdeb7f3bd367eefe01
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/616
+# power: No subsystem stats in user builds
+apply_pull_commit 616 76fc5c2fb36a3f1bfe24d51daa04caeb5ce14fdb
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/615
+# power: Add interface info to .rc
+apply_pull_commit 615 bcc1358c046cfac4b06a0faa3c0350e1d412760b
+# power: Fix unused var in Hints.cpp
+apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/613
+# init: Change toybox SELinux run context
+apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
+# init: Wipe updated xattr from /persist/
+apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
+popd
+
+
+pushd $ANDROOT/device/sony/sepolicy
+LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
+(git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
+git fetch ix5
+
+# git checkout 'toybox-vendor-init'
+# Add vendor_toolbox context
+apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
+# vendor_toolbox: Allow removing xattr from /persist
+apply_commit f8f0e99578b58e48c5973f07cdf58168e933ed12
+# vendor_init: Strip unneeded toybox-related permissions
+apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
+
+# git checkout 'kernel-socket'
+# kernel: debugfs_wlan only in debug builds
+apply_commit 39f64b7aada6875a74b82cec16432d0b97d49e6f
+
+# git checkout 'remove-nontreble-remnants'
+# netutils: Remove unused legacy access
+apply_commit 7f708f5aea5babb8009be49f1e5b4094cfff21ed
 popd
 
 pushd $ANDROOT/device/sony/tone
