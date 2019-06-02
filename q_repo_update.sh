@@ -117,13 +117,52 @@ git fetch ix5
 # Include vendor-ix5 via common.mk
 apply_commit 891d072a7e515d7e69b075b587a7baf569b54b14
 
+# init: Remove verity statements
+apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
+
+# TODO: Remove me once merged into Q/master
 # git checkout 'vintf-enforce'
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
-# init: Remove verity statements
-apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
+LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-common"
+# TODO: Remove me once merged into Q/master
 
+# https://github.com/sonyxperiadev/device-sony-common/pull/608
+# Remove gps_debug.conf
+apply_pull_commit 608 37f78456f546d59507b58af140e943d617863cc6
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/609
+# qcom/utils.mk: Use ?= for definitions
+apply_pull_commit 609 5ed2a553e443f617c79c6e7bd2bb6a8ebc218ff4
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/610
+# [Q-COMPAT] Move kernel includes to common.mk
+apply_pull_commit 610 1bf9381b197fde93b3d74dd30fb7579aae84c2f7
+# common.mk: Make BUILD_KERNEL customizable
+apply_pull_commit 610 673508ec65ba23256e7ca0e376ba130ce3ae9859
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/617
+# odm: Use PRODUCT_ODM_PROPERTIES for version
+apply_pull_commit 617 ed050fa6f371128d4b1524e3e2c90e89eafb5de2
+# odm: Only build if SONY_BUILD_ODM is set
+apply_pull_commit 617 355e63a09cc28fe3d70587cdeb7f3bd367eefe01
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/616
+# power: No subsystem stats in user builds
+apply_pull_commit 616 76fc5c2fb36a3f1bfe24d51daa04caeb5ce14fdb
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/615
+# power: Add interface info to .rc
+apply_pull_commit 615 bcc1358c046cfac4b06a0faa3c0350e1d412760b
+# power: Fix unused var in Hints.cpp
+apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/613
+# init: Change toybox SELinux run context
+apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
+# init: Wipe updated xattr from /persist/
+apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
 popd
 
 pushd $ANDROOT/device/sony/tone
