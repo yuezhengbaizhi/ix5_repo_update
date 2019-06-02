@@ -43,6 +43,17 @@ apply_gerrit_cl_commit() {
     fi
 }
 
+apply_pull_commit() {
+    _pull=$1
+    _commit=$2
+    if commit_exists $_commit
+    then
+        git cherry-pick $_commit
+    else
+        git fetch $LINK pull/$_pull/head && git cherry-pick $_commit
+    fi
+}
+
 echo ""
 echo "         d8b          888888888"
 echo "         Y8P          888"
