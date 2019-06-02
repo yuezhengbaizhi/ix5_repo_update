@@ -88,6 +88,11 @@ pushd $ANDROOT/build/make
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
 popd
 
+pushd $ANDROOT/build/soong
+# Android.bp: Fake Windows libwinpthread deps
+git am < $PATCHES_PATH/q-build-soong-fake-libwinpthread.patch
+popd
+
 pushd $ANDROOT/packages/apps/Bluetooth
 # Disable email module for BluetoothInstrumentionTest
 git am < $PATCHES_PATH/q-bluetooth-disable-email-test.patch
