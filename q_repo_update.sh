@@ -139,8 +139,8 @@ apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 apply_commit a6b628e6a2b4c33233860960d874a176c340229b
 
 # git checkout 'vintf-remove-mediacas'
-# vintf: Remove missing IMediaCas HAL
-apply_commit c6bbe23fe0fee7522f3a0c1fca581bbbd2456544
+# vintf: Remove duplicate IMediaCas HAL
+apply_commit 1f5ab5b3487567bf542a6cd40bd8cc9d5db17d75
 
 # git checkout 'vintf-target-level-4'
 # vintf: Set target-level=4 for Q
