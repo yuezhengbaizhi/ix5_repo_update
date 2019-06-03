@@ -175,7 +175,6 @@ apply_pull_commit 617 355e63a09cc28fe3d70587cdeb7f3bd367eefe01
 # odm: Include qti blobs in common-odm
 apply_commit f8fe5fb700c9e6410a1d4be3696ec1dd90f49841
 
-
 # https://github.com/sonyxperiadev/device-sony-common/pull/616
 # power: No subsystem stats in user builds
 apply_pull_commit 616 76fc5c2fb36a3f1bfe24d51daa04caeb5ce14fdb
@@ -223,10 +222,9 @@ apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
 # kernel: debugfs_wlan only in debug builds
 apply_commit 39f64b7aada6875a74b82cec16432d0b97d49e6f
 
-# git checkout 'remove-dupe-idc-keylayout'
-# Remove duplicated idc file defs
-apply_commit f783835de58fa27ce79c17d786dbda55af889494
-
+# git checkout 'remove-dupe-idc-keylayout-noconflict'
+# [NOCONFLICT] Remove duplicated idc file defs
+apply_commit a8729c24ead8c84c881d0ab4546a2c89832de6c1
 
 # git checkout 'remove-nontreble-remnants'
 # netutils: Remove unused legacy access
