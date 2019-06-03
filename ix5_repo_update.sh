@@ -174,6 +174,10 @@ apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
 apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
 # init: Wipe updated xattr from /persist/
 apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/620
+# common-packages: Add netutils-wrapper
+apply_pull_commit 620 68fb5cd8288242315869a77588c6a37900f7bcfe
 popd
 
 
