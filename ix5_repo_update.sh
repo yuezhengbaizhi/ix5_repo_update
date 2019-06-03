@@ -146,6 +146,8 @@ apply_commit 18efa4e1fe0d85f7c774b619199d8d329cbb8317
 apply_pull_commit 617 ed050fa6f371128d4b1524e3e2c90e89eafb5de2
 # odm: Only build if SONY_BUILD_ODM is set
 apply_pull_commit 617 355e63a09cc28fe3d70587cdeb7f3bd367eefe01
+# odm: Include qti blobs in common-odm
+apply_commit f8fe5fb700c9e6410a1d4be3696ec1dd90f49841
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/616
 # power: No subsystem stats in user builds
@@ -162,6 +164,14 @@ apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
 apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
 # init: Wipe updated xattr from /persist/
 apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
+
+# git checkout 'remove-packages'
+# common-packages: Remove p2p_supplicant.conf
+apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
+# common-packages: Remove libemoji
+apply_commit b5790e2affe1e0707e0cfaef4b550e3b17fc5acf
+# common-treble: nfc: Remove @1.1-impl
+apply_commit f0bc81b29670a8b6402dc1c26b47da60a0ea4701
 popd
 
 
