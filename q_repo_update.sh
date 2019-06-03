@@ -257,6 +257,10 @@ LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
 git fetch ix5
 
+# git checkout 'lunch'
+# Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
+apply_commit 383d2594a89ca7076df06a701d3cf5c76fff9e3e
+
 # git checkout 'dt2w'
 # Re-enable tap to wake
 #apply_commit 90a80f6e42bfd2feca40fbdc8e2b046ff654032a
