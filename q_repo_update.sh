@@ -150,6 +150,14 @@ apply_commit 0a21146905c7f9bfbd3791855b791d6642345fb2
 # vintf: Lower radio version to 1.1
 apply_commit 25d4d23c987cb6ff63c0462ff6ced0d389deec7b
 
+# git checkout 'remove-packages'
+# common-packages: Remove p2p_supplicant.conf
+apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
+# common-packages: Remove libemoji
+apply_commit b5790e2affe1e0707e0cfaef4b550e3b17fc5acf
+# common-treble: nfc: Remove @1.1-impl
+apply_commit f0bc81b29670a8b6402dc1c26b47da60a0ea4701
+
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-common"
 # TODO: Remove me once merged into Q/master
 
@@ -190,14 +198,6 @@ apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
 apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
 # init: Wipe updated xattr from /persist/
 apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
-
-# git checkout 'remove-packages'
-# common-packages: Remove p2p_supplicant.conf
-apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
-# common-packages: Remove libemoji
-apply_commit b5790e2affe1e0707e0cfaef4b550e3b17fc5acf
-# common-treble: nfc: Remove @1.1-impl
-apply_commit f0bc81b29670a8b6402dc1c26b47da60a0ea4701
 popd
 
 
