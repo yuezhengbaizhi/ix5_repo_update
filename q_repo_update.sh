@@ -225,7 +225,8 @@ apply_commit 39f64b7aada6875a74b82cec16432d0b97d49e6f
 
 # git checkout 'remove-dupe-idc-keylayout'
 # Remove duplicated idc file defs
-apply_commit e4c343496192802e215790a0b15d69e9f7fd10cd
+apply_commit f783835de58fa27ce79c17d786dbda55af889494
+
 
 # git checkout 'remove-nontreble-remnants'
 # netutils: Remove unused legacy access
