@@ -178,6 +178,10 @@ apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
 # https://github.com/sonyxperiadev/device-sony-common/pull/620
 # common-packages: Add netutils-wrapper
 apply_pull_commit 620 68fb5cd8288242315869a77588c6a37900f7bcfe
+
+# https://github.com/sonyxperiadev/device-sony-common/pull/606
+# Revert "common-prop: Enable dmic fluence for voicerec case"
+apply_pull_commit 606 fe3f8ffb83a0f0a729aa8294c3fc8b39961d4bd4
 popd
 
 
