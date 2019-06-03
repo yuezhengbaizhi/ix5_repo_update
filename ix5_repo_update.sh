@@ -190,7 +190,7 @@ apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
 
 # git checkout 'kernel-socket'
 # kernel: debugfs_wlan only in debug builds
-apply_commit 39f64b7aada6875a74b82cec16432d0b97d49e6f
+apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
 
 # git checkout 'remove-nontreble-remnants'
 # netutils: Remove unused legacy access
