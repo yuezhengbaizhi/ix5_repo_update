@@ -177,11 +177,11 @@ apply_pull_commit 610 673508ec65ba23256e7ca0e376ba130ce3ae9859
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/617
 # odm: Use PRODUCT_ODM_PROPERTIES for version
-apply_pull_commit 617 ed050fa6f371128d4b1524e3e2c90e89eafb5de2
+apply_pull_commit 617 aefced5342afec013bff975f04050762a6c89b78
 # odm: Only build if SONY_BUILD_ODM is set
-apply_pull_commit 617 5f010feaa144219d4ab903a7b63d43dc373e739a
+apply_pull_commit 617 6662f576ecf2957528ed2fd8b8e35506259a897b
 # odm: Include qti blobs in common-odm
-apply_commit f8fe5fb700c9e6410a1d4be3696ec1dd90f49841
+apply_commit 2019f8b5499d553c51b000202a2a62121f8568e6
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/616
 # power: No subsystem stats in user builds
