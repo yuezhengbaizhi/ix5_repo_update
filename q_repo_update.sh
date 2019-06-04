@@ -222,7 +222,7 @@ apply_commit 64501e76d4daced00ef64f4a9bb08e99b7ad650e
 # Add vendor_toolbox context
 apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
 # vendor_toolbox: Allow removing xattr from /persist
-apply_commit f8f0e99578b58e48c5973f07cdf58168e933ed12
+apply_commit 46959678c910300d687fcc72cd5a2aae0af6e28f
 # vendor_init: Strip unneeded toybox-related permissions
 apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
 
