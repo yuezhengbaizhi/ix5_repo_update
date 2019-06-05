@@ -197,6 +197,9 @@ apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
 apply_commit 46959678c910300d687fcc72cd5a2aae0af6e28f
 # vendor_init: Strip unneeded toybox-related permissions
 apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
+# vendor_toolbox: Allow SYS_ADMIN
+apply_commit 0f780bf6daa08d13c3738f1508fce35364164634
+
 
 # git checkout 'kernel-socket'
 # kernel: debugfs_wlan only in debug builds
