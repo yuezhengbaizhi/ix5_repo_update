@@ -86,10 +86,6 @@ popd
 pushd $ANDROOT/build/make
 # releasetools: Allow flashing downgrades
 git am < $PATCHES_PATH/build-releasetools-allow-flashing-downgrades.patch
-
-LINK=$HTTP && LINK+="://android.googlesource.com/platform/build"
-# core/main: Strip bitness before existence check
-apply_gerrit_cl_commit refs/changes/26/975126/2 0cad187889d47e3555b60fcc822a5cba6d15387f
 popd
 
 pushd $ANDROOT/build/soong
@@ -256,7 +252,6 @@ git fetch ix5
 apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 # Disable dm-verity
 apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
-popd
 
 # git checkout 'q-bdroid-property-length'
 # bdroid_buildcfg: Fix PROPERTY_VALUE_MAX definition
