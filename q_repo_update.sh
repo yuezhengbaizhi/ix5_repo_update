@@ -239,6 +239,11 @@ apply_commit 7f708f5aea5babb8009be49f1e5b4094cfff21ed
 # git checkout 'genfscon-remove-sysfs-net'
 # genfscon: Remove duplicate sysfs_net entries
 apply_commit c086d8a5bd1daa4d27717154e76c97044c8e958c
+
+# git checkout 'q-netd-remove-socket'
+# netmgrd: Remove unused netd_socket
+apply_commit 1a59778834eefedcb3e56e910d10392595db3d57
+
 popd
 
 
