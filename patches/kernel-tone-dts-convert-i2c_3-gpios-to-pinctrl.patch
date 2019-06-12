@@ -1,0 +1,321 @@
+From 669b4489549fb6eaa097fafd15d9a59f02dc860c Mon Sep 17 00:00:00 2001
+From: ix5 <ix5@users.noreply.github.com>
+Date: Sat, 19 Jan 2019 20:38:10 +0100
+Subject: [PATCH] tone: dts: Convert i2c_3 GPIOs to pinctrl
+
+But keep pins 47 and 48 in somc_pinctrl for dora
+
+Adapted from https://github.com/sonyxperiadev/kernel/pull/1881
+Originally by Erik Castricum
+
+See:
+https://github.com/sonyxperiadev/kernel/pull/1667
+and
+https://github.com/sonyxperiadev/bug_tracker/issues/137
+
+Change-Id: I55bacf1d4f6ae7cb2b06ad6bc81c014b7f5eb9aa
+Signed-off-by: Erik Castricum <git@cas-online.nl>
+Signed-off-by: ix5 <ix5@users.noreply.github.com>
+---
+ .../boot/dts/qcom/msm8996-tone-common.dtsi    | 59 ++++++++++-----
+ .../dts/qcom/msm8996-tone-dora-common.dtsi    |  4 ++
+ .../dts/qcom/msm8996-tone-kagura-common.dtsi  | 72 ++-----------------
+ .../dts/qcom/msm8996-tone-keyaki-common.dtsi  | 70 ++----------------
+ 4 files changed, 59 insertions(+), 146 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi b/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi
+index adfc4ffa5cb0..a264696e8270 100644
+--- a/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8996-tone-common.dtsi
+@@ -178,8 +178,6 @@
+ 		clocks = <&clock_gcc GCC_BLSP1_AHB_CLK>,
+ 			<&clock_gcc GCC_BLSP1_QUP3_I2C_APPS_CLK>;
+ 		pinctrl-names = "i2c_active", "i2c_sleep";
+-		pinctrl-0 = <&msm_gpio_47 &msm_gpio_48>;
+-		pinctrl-1 = <&msm_gpio_47 &msm_gpio_48>;
+ 		status = "disabled";
+ 	};
+ 
+@@ -350,21 +348,20 @@
+ 				&msm_gpio_30 &msm_gpio_31 &msm_gpio_32 &msm_gpio_33
+ 				&msm_gpio_34 &msm_gpio_38 &msm_gpio_39 &msm_gpio_40
+ 				&msm_gpio_41 &msm_gpio_42 &msm_gpio_43 &msm_gpio_44_suspend
+-				&msm_gpio_45 &msm_gpio_46 &msm_gpio_47 &msm_gpio_48
+-				&msm_gpio_49 &msm_gpio_50 &msm_gpio_51 &msm_gpio_52
+-				&msm_gpio_55 &msm_gpio_56 &msm_gpio_57 &msm_gpio_58
+-				&msm_gpio_59 &msm_gpio_60 &msm_gpio_61 &msm_gpio_62
+-				&msm_gpio_63 &msm_gpio_69 &msm_gpio_73 &msm_gpio_74
+-				&msm_gpio_75 &msm_gpio_76 &msm_gpio_77 &msm_gpio_78
+-				&msm_gpio_79 &msm_gpio_81 &msm_gpio_82_suspend &msm_gpio_83
+-				&msm_gpio_84 &msm_gpio_85 &msm_gpio_87
+-				&msm_gpio_88 &msm_gpio_89 &msm_gpio_90 &msm_gpio_91
+-				&msm_gpio_92 &msm_gpio_93 &msm_gpio_94 &msm_gpio_95
+-				&msm_gpio_96 &msm_gpio_108 &msm_gpio_112 &msm_gpio_116
+-				&msm_gpio_120 &msm_gpio_121 &msm_gpio_122 &msm_gpio_123
+-				&msm_gpio_124 &msm_gpio_125 &msm_gpio_126 &msm_gpio_130
+-				&msm_gpio_131 &msm_gpio_132 &msm_gpio_141 &msm_gpio_142
+-				&msm_gpio_143>;
++				&msm_gpio_45 &msm_gpio_46 &msm_gpio_49 &msm_gpio_50
++				&msm_gpio_51 &msm_gpio_52 &msm_gpio_55 &msm_gpio_56
++				&msm_gpio_57 &msm_gpio_58 &msm_gpio_59 &msm_gpio_60
++				&msm_gpio_61 &msm_gpio_62 &msm_gpio_63 &msm_gpio_69
++				&msm_gpio_73 &msm_gpio_74 &msm_gpio_75 &msm_gpio_76
++				&msm_gpio_77 &msm_gpio_78 &msm_gpio_79 &msm_gpio_81
++				&msm_gpio_82_suspend &msm_gpio_83 &msm_gpio_84
++				&msm_gpio_85 &msm_gpio_87 &msm_gpio_88 &msm_gpio_89
++				&msm_gpio_90 &msm_gpio_91 &msm_gpio_92 &msm_gpio_93
++				&msm_gpio_94 &msm_gpio_95 &msm_gpio_96 &msm_gpio_108
++				&msm_gpio_112 &msm_gpio_116 &msm_gpio_120 &msm_gpio_121
++				&msm_gpio_122 &msm_gpio_123 &msm_gpio_124 &msm_gpio_125
++				&msm_gpio_126 &msm_gpio_130 &msm_gpio_131 &msm_gpio_132
++				&msm_gpio_141 &msm_gpio_142 &msm_gpio_143>;
+ 
+ 		/* If product common default setting is needed,
+ 		   fill pinctrl-1 value in <product>_common.dtsi */
+@@ -3006,6 +3003,34 @@
+ 	/* GPIO_149 : RFFE1_CLK */
+ 	/* Follow QTI */
+ 
++	i2c_3 { /* BLSP1 QUP3 */
++		i2c_3_active: i2c_3_active {
++			mux {
++				pins = "gpio47", "gpio48";
++				function = "blsp_i2c3";
++			};
++
++			config {
++				pins = "gpio47", "gpio48";
++				drive-strength = <2>;
++				bias-disable;
++			};
++		};
++
++		i2c_3_sleep: i2c_3_sleep {
++			mux {
++				pins = "gpio47", "gpio48";
++				function = "blsp_i2c3";
++			};
++			config {
++				pins = "gpio47", "gpio48";
++				drive-strength = <2>;
++				bias-pull-down;
++				input-enable;
++			};
++		};
++	};
++
+ 	mdss_touch_active: mdss_touch_active {
+ 		mux {
+ 			pins = "gpio125";
+diff --git a/arch/arm64/boot/dts/qcom/msm8996-tone-dora-common.dtsi b/arch/arm64/boot/dts/qcom/msm8996-tone-dora-common.dtsi
+index fb54dbef99b5..2f3be7e0c28f 100644
+--- a/arch/arm64/boot/dts/qcom/msm8996-tone-dora-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8996-tone-dora-common.dtsi
+@@ -36,6 +36,10 @@
+ 	};
+ };
+ 
++&somc_pinctrl {
++	pinctrl-1 = <&msm_gpio_47 &msm_gpio_48>;
++};
++
+ &qpnp_fg {
+ 	qcom,battery-data = <&tone_dora_batterydata>;
+ 	qcom,fg-iterm-ma = <150>;
+diff --git a/arch/arm64/boot/dts/qcom/msm8996-tone-kagura-common.dtsi b/arch/arm64/boot/dts/qcom/msm8996-tone-kagura-common.dtsi
+index 52a4cd0deece..37be5b79a413 100644
+--- a/arch/arm64/boot/dts/qcom/msm8996-tone-kagura-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8996-tone-kagura-common.dtsi
+@@ -20,8 +20,9 @@
+ &soc {
+ 	/* I2C : BLSP3 */
+ 	i2c_3: i2c@7577000 { /* BLSP1 QUP2 */
+-		pinctrl-1 = <&msm_gpio_47_suspend &msm_gpio_48_suspend>;
+ 		status = "okay";
++		pinctrl-0 = <&i2c_3_active>;
++		pinctrl-1 = <&i2c_3_sleep>;
+ 		tcs3490@72 {
+ 			compatible = "ams,tcs3490";
+ 			reg = <0x72>;
+@@ -66,12 +67,11 @@
+ &somc_pinctrl {
+ 	/* If variant specific default setting is needed,
+ 	   fill pinctrl-1 value in <variant>.dtsi */
+-	pinctrl-1 = <&msm_gpio_25 &msm_gpio_47 &msm_gpio_47_suspend
+-		&msm_gpio_48 &msm_gpio_48_suspend
+-		&msm_gpio_59 &msm_gpio_60 &msm_gpio_61 &msm_gpio_78
+-		&msm_gpio_85_suspend &msm_gpio_86_suspend &msm_gpio_104
+-		&msm_gpio_127 &msm_gpio_131>;
+-};
++	pinctrl-1 = <&msm_gpio_25 &msm_gpio_59 &msm_gpio_60
++		&msm_gpio_61 &msm_gpio_69 &msm_gpio_78
++		&msm_gpio_85_suspend &msm_gpio_86_suspend
++		&msm_gpio_104 &msm_gpio_127 &msm_gpio_131>;
++	};
+ 
+ 
+ /{
+@@ -129,64 +129,6 @@
+ 		};
+ 	};
+ 
+-	/* GPIO_47 : RGBC-IR & ToF I2C SDA */
+-	msm_gpio_47: msm_gpio_47 {
+-		mux {
+-			pins = "gpio47";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio47";
+-			drive-strength = <2>;
+-			bias-disable;
+-			/delete-property/ output-low;
+-		};
+-	};
+-
+-	msm_gpio_47_suspend: msm_gpio_47_suspend {
+-		mux {
+-			pins = "gpio47";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio47";
+-			drive-strength = <2>;
+-			bias-pull-down;
+-			input-enable;
+-		};
+-	};
+-
+-	/* GPIO_48 : RGBC-IR & ToF I2C SCL */
+-	msm_gpio_48: msm_gpio_48 {
+-		mux {
+-			pins = "gpio48";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio48";
+-			drive-strength = <2>;
+-			bias-disable;
+-			/delete-property/ output-low;
+-		};
+-	};
+-
+-	msm_gpio_48_suspend: msm_gpio_48_suspend {
+-		mux {
+-			pins = "gpio48";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio48";
+-			drive-strength = <2>;
+-			bias-pull-down;
+-			input-enable;
+-		};
+-	};
+-
+ 	/* GPIO_59 : USB_CC_INT_N */
+ 	msm_gpio_59: msm_gpio_59 {
+ 		mux {
+diff --git a/arch/arm64/boot/dts/qcom/msm8996-tone-keyaki-common.dtsi b/arch/arm64/boot/dts/qcom/msm8996-tone-keyaki-common.dtsi
+index 4bb785a2baee..bf05ecb3adc1 100644
+--- a/arch/arm64/boot/dts/qcom/msm8996-tone-keyaki-common.dtsi
++++ b/arch/arm64/boot/dts/qcom/msm8996-tone-keyaki-common.dtsi
+@@ -20,8 +20,9 @@
+ &soc {
+ 	/* I2C : BLSP3 */
+ 	i2c_3: i2c@7577000 { /* BLSP1 QUP2 */
+-		pinctrl-1 = <&msm_gpio_47_suspend &msm_gpio_48_suspend>;
+ 		status = "okay";
++		pinctrl-0 = <&i2c_3_active>;
++		pinctrl-1 = <&i2c_3_sleep>;
+ 		tcs3490@72 {
+ 			compatible = "ams,tcs3490";
+ 			reg = <0x72>;
+@@ -69,10 +70,10 @@
+ &somc_pinctrl {
+ 	/* If variant specific default setting is needed,
+ 	   fill pinctrl-1 value in <variant>.dtsi */
+-	pinctrl-1 = <&msm_gpio_25 &msm_gpio_47 &msm_gpio_48
+-		&msm_gpio_59 &msm_gpio_60 &msm_gpio_61 &msm_gpio_69
+-		&msm_gpio_78 &msm_gpio_85 &msm_gpio_86 &msm_gpio_104
+-		&msm_gpio_127 &msm_gpio_131>;
++	pinctrl-1 = <&msm_gpio_25 &msm_gpio_59 &msm_gpio_60
++		&msm_gpio_61 &msm_gpio_69 &msm_gpio_78
++		&msm_gpio_85_suspend &msm_gpio_86_suspend
++		&msm_gpio_104 &msm_gpio_127 &msm_gpio_131>;
+ };
+ 
+ /{
+@@ -182,65 +183,6 @@
+ 		};
+ 	};
+ 
+-
+-	/* GPIO_47 : CAMSENSOR_I2C_SDA */
+-	msm_gpio_47: msm_gpio_47 {
+-		mux {
+-			pins = "gpio47";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio47";
+-			drive-strength = <2>;
+-			bias-disable;
+-			/delete-property/ output-low;
+-		};
+-	};
+-
+-	msm_gpio_47_suspend: msm_gpio_47_suspend {
+-		mux {
+-			pins = "gpio47";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio47";
+-			drive-strength = <2>;
+-			bias-pull-down;
+-			input-enable;
+-		};
+-	};
+-
+-	/* GPIO_48 : CAMSENSOR_I2C_SCL */
+-	msm_gpio_48: msm_gpio_48 {
+-		mux {
+-			pins = "gpio48";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio48";
+-			drive-strength = <2>;
+-			bias-disable;
+-			/delete-property/ output-low;
+-		};
+-	};
+-
+-	msm_gpio_48_suspend: msm_gpio_48_suspend {
+-		mux {
+-			pins = "gpio48";
+-			function = "blsp_i2c3";
+-		};
+-
+-		config {
+-			pins = "gpio48";
+-			drive-strength = <2>;
+-			bias-pull-down;
+-			input-enable;
+-		};
+-	};
+-
+ 	/* GPIO_59 : USB_CC_INT_N */
+ 	msm_gpio_59: msm_gpio_59 {
+ 		mux {
+-- 
+2.22.0
+
