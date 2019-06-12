@@ -254,6 +254,13 @@ apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
 #apply_commit a0253f3de75c52bccb9275ee7eda6cd2f9db539c
 popd
 
+pushd $ANDROOT/vendor/qcom/opensource/camera
+LINK=$HTTP && LINK+="://github.com/sonyxperiadev/camera"
+# https://github.com/sonyxperiadev/camera/pull/114
+# QCamera2: HAL: Change CDS mode to OFF by default.
+apply_pull_commit 114 fcff40461ab5ff80f928130eb885f8f0544363e9
+popd
+
 # because "set -e" is used above, when we get to this point, we know
 # all patches were applied successfully.
 echo ""
