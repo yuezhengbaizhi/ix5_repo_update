@@ -78,8 +78,6 @@ git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
 
 # TODO: Remove me once merged upstream
-# perf: core: Avoid race condition when releasing perf-events
-git am < $PATCHES_PATH/kernel-perf-core-avoid-race-condition-when-releasing-perf-e.patch
 # tone: dts: Convert i2c_3 GPIOs to pinctrl
 git am < $PATCHES_PATH/kernel-tone-dts-convert-i2c_3-gpios-to-pinctrl.patch
 popd
