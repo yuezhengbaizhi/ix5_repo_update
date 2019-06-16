@@ -232,10 +232,6 @@ apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
 # [NOCONFLICT] Remove duplicated idc file defs
 apply_commit a8729c24ead8c84c881d0ab4546a2c89832de6c1
 
-# git checkout 'remove-nontreble-remnants'
-# netutils: Remove unused legacy access
-apply_commit 7f708f5aea5babb8009be49f1e5b4094cfff21ed
-
 # git checkout 'genfscon-remove-sysfs-net'
 # genfscon: Remove duplicate sysfs_net entries
 apply_commit c086d8a5bd1daa4d27717154e76c97044c8e958c

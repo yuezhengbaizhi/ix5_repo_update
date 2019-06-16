@@ -138,13 +138,6 @@ apply_commit 6c33a4a8f5fe4615235df9d7abcfe3644f299672
 # Enforce usage of vintf manifest
 apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
-# init: Boot DSP before SLPI again
-apply_commit c7b0275c3ea0a9728e759b79d50eacfe71d65e58
-# init: Enable adsprpcd instead of starting
-apply_commit b3160f2518bf73b745a1ddef375fe7e67613d245
-# Permissions: Move source files to rootdir/vendor
-apply_commit 18efa4e1fe0d85f7c774b619199d8d329cbb8317
-
 # git checkout 'remove-packages'
 # common-packages: Remove p2p_supplicant.conf
 apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
@@ -200,14 +193,9 @@ apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
 # vendor_toolbox: Allow SYS_ADMIN
 apply_commit 0f780bf6daa08d13c3738f1508fce35364164634
 
-
 # git checkout 'kernel-socket'
 # kernel: debugfs_wlan only in debug builds
 apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
-
-# git checkout 'remove-nontreble-remnants'
-# netutils: Remove unused legacy access
-apply_commit 7f708f5aea5babb8009be49f1e5b4094cfff21ed
 popd
 
 pushd $ANDROOT/device/sony/tone
