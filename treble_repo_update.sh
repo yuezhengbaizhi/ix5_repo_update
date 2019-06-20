@@ -66,7 +66,9 @@ echo "              applying treble patches..."
 echo ""
 
 pushd $ANDROOT/kernel/sony/msm-4.9/kernel
+# dtsi: tone: conjure oem into /vendor
 git am < $PATCHES_PATH/dtsi-tone-conjure-oem-into-vendor.patch
+# dtsi: loire: conjure oem into /vendor
 git am < $PATCHES_PATH/dtsi-loire-conjure-oem-into-vendor.patch
 popd
 
@@ -109,12 +111,9 @@ apply_commit 1170e85e4567e44314eff0b55566957632c8b2bc
 popd
 
 pushd $ANDROOT/system/core
-LINK=$HTTP && LINK+="://android.googlesource.com/platform/system/core"
-# ld.config: Allow /vendor/odm paths in addition to /odm
-#git am < $PATCHES_PATH/system-core-ld.config-allow-vendor.patch
-#apply_commit refs/changes/76/859276/1 4f76802207b21313ddcbb8cd5e074897020f1e21
-# init: Load build.prop from /vendor/odm as well
-apply_gerrit_cl_commit refs/changes/77/859277/1 0e598b50912a3a0c720812a2bb5fb81a3b0458cd
+# init: Always allow permissive
+# Horrible workaround to get permissive SELinux in user builds
+git am < $PATCHES_PATH/system-core-always-allow-permissive.patch
 popd
 
 

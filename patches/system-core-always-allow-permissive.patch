@@ -1,0 +1,42 @@
+From ec96d2ba43b5d6f0eed38a2dc09643746ed57529 Mon Sep 17 00:00:00 2001
+From: Anonymous <none@none.none>
+Date: Thu, 20 Jun 2019 14:04:55 +0200
+Subject: [PATCH] init: Always allow permissive
+
+Horrible workaround to get permissive SELinux in user builds
+
+Change-Id: I23c7040a116dd2fee5e0138f6a4bb1aa337a008f
+---
+ init/Android.bp | 2 +-
+ init/Android.mk | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/init/Android.bp b/init/Android.bp
+index 63c8382a4..a6ac83095 100644
+--- a/init/Android.bp
++++ b/init/Android.bp
+@@ -27,7 +27,7 @@ cc_defaults {
+         "-Wno-unused-parameter",
+         "-Werror",
+         "-DALLOW_LOCAL_PROP_OVERRIDE=0",
+-        "-DALLOW_PERMISSIVE_SELINUX=0",
++        "-DALLOW_PERMISSIVE_SELINUX=1",
+         "-DREBOOT_BOOTLOADER_ON_PANIC=0",
+         "-DWORLD_WRITABLE_KMSG=0",
+         "-DDUMP_ON_UMOUNT_FAILURE=0",
+diff --git a/init/Android.mk b/init/Android.mk
+index c4a6a50e5..58161cafe 100644
+--- a/init/Android.mk
++++ b/init/Android.mk
+@@ -14,7 +14,7 @@ init_options += \
+ else
+ init_options += \
+     -DALLOW_LOCAL_PROP_OVERRIDE=0 \
+-    -DALLOW_PERMISSIVE_SELINUX=0 \
++    -DALLOW_PERMISSIVE_SELINUX=1 \
+     -DREBOOT_BOOTLOADER_ON_PANIC=0 \
+     -DWORLD_WRITABLE_KMSG=0 \
+     -DDUMP_ON_UMOUNT_FAILURE=0
+-- 
+2.22.0
+
