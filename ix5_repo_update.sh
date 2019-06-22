@@ -214,7 +214,8 @@ LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-tone"
 # git checkout 'move-nfc-nci'
 # Move libnfc-nci.conf to tone shared
 apply_pull_commit 175 ec1910d3c45c616ba33c7021610cb4342e009325
-
+# rootdir: Fix libnfc-nci.conf location
+apply_commit 1ed9c4bb2b9987a22fa7b2602fd86a12683ee91f
 popd
 
 pushd $ANDROOT/device/sony/loire
