@@ -208,6 +208,13 @@ git fetch ix5
 apply_commit af592265685fddf24100cbc1fdcdcb5bfd2260c1
 # Disable dm-verity
 apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
+
+# TODO: Remove me once merged into p-mr1
+LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-tone"
+# git checkout 'move-nfc-nci'
+# Move libnfc-nci.conf to tone shared
+apply_pull_commit 175 ec1910d3c45c616ba33c7021610cb4342e009325
+
 popd
 
 pushd $ANDROOT/device/sony/loire
@@ -238,6 +245,12 @@ apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
 # git checkout 'rgbcir'
 # Add preliminary RGBCIR calibration file
 #apply_commit a0253f3de75c52bccb9275ee7eda6cd2f9db539c
+
+# TODO: Remove me once merged into p-mr1
+LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-kagura"
+# git checkout 'move-nfc-nci'
+# Move libnfc-nci.conf to tone shared
+apply_pull_commit 47 93f1921d4bcdb6bcc6771f5b3160a7e3526465ff
 popd
 
 pushd $ANDROOT/vendor/qcom/opensource/camera
