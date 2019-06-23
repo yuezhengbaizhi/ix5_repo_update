@@ -211,11 +211,12 @@ apply_commit b611c8d91a374f246be393d89f20bbf3fc2ab9f7
 
 # TODO: Remove me once merged into p-mr1
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-tone"
-# git checkout 'move-nfc-nci'
+# https://github.com/sonyxperiadev/device-sony-tone/pull/175
 # Move libnfc-nci.conf to tone shared
 apply_pull_commit 175 ec1910d3c45c616ba33c7021610cb4342e009325
+# https://github.com/sonyxperiadev/device-sony-tone/pull/176
 # rootdir: Fix libnfc-nci.conf location
-apply_commit 1ed9c4bb2b9987a22fa7b2602fd86a12683ee91f
+apply_pull_commit 176 1ed9c4bb2b9987a22fa7b2602fd86a12683ee91f
 popd
 
 pushd $ANDROOT/device/sony/loire
