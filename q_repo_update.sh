@@ -318,6 +318,11 @@ apply_pull_commit 22 32827304b117684a3cd2a2ff3d8d115ffc0246f1
 apply_pull_commit 22 b3bdde9600dda7f41da63b2c55e14afd77fc5af8
 popd
 
+# TODO: Fix for Q/master
+#pushd $ANDROOT/system/sepolicy
+#git am < $PATCHES_PATH/sepolicy-app-neverallow-exception-matlog.patch
+#popd
+
 # because "set -e" is used above, when we get to this point, we know
 # all patches were applied successfully.
 echo ""

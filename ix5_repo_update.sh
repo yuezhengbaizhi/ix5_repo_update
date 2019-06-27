@@ -255,6 +255,10 @@ LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-kagura"
 apply_pull_commit 47 93f1921d4bcdb6bcc6771f5b3160a7e3526465ff
 popd
 
+pushd $ANDROOT/system/sepolicy
+git am < $PATCHES_PATH/sepolicy-app-neverallow-exception-matlog.patch
+popd
+
 pushd $ANDROOT/vendor/qcom/opensource/camera
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/camera"
 # https://github.com/sonyxperiadev/camera/pull/114

@@ -1,0 +1,50 @@
+From d15c7d1c3d769210ce214d62fae47cedc9ebd0c7 Mon Sep 17 00:00:00 2001
+From: Felix <google@ix5.org>
+Date: Thu, 27 Jun 2019 18:42:17 +0200
+Subject: [PATCH] app: Neverallow exception for Matlog
+
+Change-Id: I7bd0f3d38bd1d52059c322d4781c3e9c30ad0a0b
+---
+ prebuilts/api/28.0/public/app.te | 7 ++++++-
+ public/app.te                    | 7 ++++++-
+ 2 files changed, 12 insertions(+), 2 deletions(-)
+
+diff --git a/prebuilts/api/28.0/public/app.te b/prebuilts/api/28.0/public/app.te
+index 439c1f80..9634e56a 100644
+--- a/prebuilts/api/28.0/public/app.te
++++ b/prebuilts/api/28.0/public/app.te
+@@ -509,7 +509,12 @@ neverallow appdomain
+     proc:dir_file_class_set write;
+ 
+ # Access to syslog(2) or /proc/kmsg.
+-neverallow appdomain kernel:system { syslog_read syslog_mod syslog_console };
++# Exception for platform apps like Matlog
++neverallow { appdomain -platform_app } kernel:system {
++  syslog_read
++  syslog_mod
++  syslog_console
++};
+ 
+ # SELinux is not an API for apps to use
+ neverallow { appdomain -shell } *:security { compute_av check_context };
+diff --git a/public/app.te b/public/app.te
+index 439c1f80..9634e56a 100644
+--- a/public/app.te
++++ b/public/app.te
+@@ -509,7 +509,12 @@ neverallow appdomain
+     proc:dir_file_class_set write;
+ 
+ # Access to syslog(2) or /proc/kmsg.
+-neverallow appdomain kernel:system { syslog_read syslog_mod syslog_console };
++# Exception for platform apps like Matlog
++neverallow { appdomain -platform_app } kernel:system {
++  syslog_read
++  syslog_mod
++  syslog_console
++};
+ 
+ # SELinux is not an API for apps to use
+ neverallow { appdomain -shell } *:security { compute_av check_context };
+-- 
+2.22.0
+
