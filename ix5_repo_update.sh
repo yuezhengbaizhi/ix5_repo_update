@@ -76,10 +76,6 @@ pushd $ANDROOT/kernel/sony/msm-4.9/kernel
 #git am < $PATCHES_PATH/kernel-dtsi-wakeup.patch
 # tone: panel: set min brightness to 1.2mA
 git am < $PATCHES_PATH/panel-minimum-brightness.patch
-
-# TODO: Remove me once merged upstream
-# tone: dts: Convert i2c_3 GPIOs to pinctrl
-git am < $PATCHES_PATH/kernel-tone-dts-convert-i2c_3-gpios-to-pinctrl.patch
 popd
 
 pushd $ANDROOT/build/make
