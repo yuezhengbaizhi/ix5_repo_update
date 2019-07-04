@@ -6,6 +6,7 @@ set -e
 
 ANDROOT=$PWD
 HTTP=https
+OFFLINE=$SODP_WORK_OFFLINE
 RESOLVED_REPO_PATH="$ANDROOT/$(dirname $(readlink $0))"
 PATCHES_PATH=$RESOLVED_REPO_PATH/patches
 
@@ -51,6 +52,13 @@ apply_pull_commit() {
         git cherry-pick $_commit
     else
         git fetch $LINK pull/$_pull/head && git cherry-pick $_commit
+    fi
+}
+
+do_if_online() {
+    if [ -z $OFFLINE ]
+    then
+        $@
     fi
 }
 
@@ -110,7 +118,7 @@ popd
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 # git checkout 'selinux-enforcing'
 # Switch selinux to enforcing
 apply_commit 1fc8e752c33ae07fe8c8f6d48abb2d1324b64536
@@ -177,7 +185,7 @@ popd
 pushd $ANDROOT/device/sony/sepolicy
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'toybox-vendor-init'
 # Add vendor_toolbox context
@@ -197,7 +205,7 @@ popd
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
@@ -218,7 +226,7 @@ popd
 pushd $ANDROOT/device/sony/loire
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-loire"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
 apply_commit 2165decc2b97364348e0ce1ae9d099fc5abab430
@@ -230,7 +238,7 @@ popd
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'dt2w'
 # Re-enable tap to wake

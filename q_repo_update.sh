@@ -6,6 +6,7 @@ set -e
 
 ANDROOT=$PWD
 HTTP=https
+OFFLINE=$SODP_WORK_OFFLINE
 RESOLVED_REPO_PATH="$ANDROOT/$(dirname $(readlink $0))"
 PATCHES_PATH=$RESOLVED_REPO_PATH/patches
 
@@ -51,6 +52,13 @@ apply_pull_commit() {
         git cherry-pick $_commit
     else
         git fetch $LINK pull/$_pull/head && git cherry-pick $_commit
+    fi
+}
+
+do_if_online() {
+    if [ -z $OFFLINE ]
+    then
+        $@
     fi
 }
 
@@ -116,7 +124,7 @@ popd
 pushd $ANDROOT/device/sony/common
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-common"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'add-vendor-ix5'
 # Include vendor-ix5 via common.mk
@@ -204,7 +212,7 @@ popd
 pushd $ANDROOT/device/sony/sepolicy
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-sepolicy"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'q-sepolicy-version'
 # Q: TEMP: Set sepolicy version to match master
@@ -242,7 +250,7 @@ popd
 pushd $ANDROOT/device/sony/tone
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-tone"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'disable-verity-no-forceencrypt'
 # Change forceencrypt to encryptable for userdata
@@ -267,7 +275,7 @@ popd
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
 (git remote --verbose | grep -q $LINK) || git remote add ix5 $LINK
-git fetch ix5
+do_if_online git fetch ix5
 
 # git checkout 'lunch'
 # Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
