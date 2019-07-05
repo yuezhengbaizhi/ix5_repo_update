@@ -248,14 +248,6 @@ pushd $ANDROOT/system/sepolicy
 git am < $PATCHES_PATH/sepolicy-app-neverallow-exception-matlog.patch
 popd
 
-pushd $ANDROOT/system/netd
-LINK=$HTTP && LINK+="://github.com/LineageOS/android_system_netd"
-# Copy queries synchronously in DnsTlsSocket
-# https://review.lineageos.org/c/LineageOS/android_system_netd/+/248684
-# Change-Id: Ia4e72da561aeef69a17e87bfdc7aa04340c12fd0
-apply_gerrit_cl_commit refs/changes/84/248684/1 d7df49be678befb7e6cba7438df20b51f322a479
-popd
-
 pushd $ANDROOT/vendor/qcom/opensource/camera
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/camera"
 # https://github.com/sonyxperiadev/camera/pull/114
