@@ -144,11 +144,14 @@ apply_commit 5df1a36972a8709f76463f8fe184d472e75d93a1
 
 # git checkout 'remove-packages'
 # common-packages: Remove p2p_supplicant.conf
-apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
+# TODO: is in master, needs to land in p-mr1
+#apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
 # common-packages: Remove libemoji
-apply_commit b5790e2affe1e0707e0cfaef4b550e3b17fc5acf
+# TODO: is in master, needs to land in p-mr1
+#apply_commit b5790e2affe1e0707e0cfaef4b550e3b17fc5acf
 # common-treble: nfc: Remove @1.1-impl
-apply_commit f0bc81b29670a8b6402dc1c26b47da60a0ea4701
+# TODO: is in master, needs to land in p-mr1
+#apply_commit f0bc81b29670a8b6402dc1c26b47da60a0ea4701
 
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-common"
 
@@ -166,15 +169,19 @@ apply_pull_commit 616 76fc5c2fb36a3f1bfe24d51daa04caeb5ce14fdb
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/615
 # power: Add interface info to .rc
-apply_pull_commit 615 bcc1358c046cfac4b06a0faa3c0350e1d412760b
+# TODO: is in master, needs to land in p-mr1
+#apply_pull_commit 615 bcc1358c046cfac4b06a0faa3c0350e1d412760b
 # power: Fix unused var in Hints.cpp
-apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
+# TODO: is in master, needs to land in p-mr1
+#apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/613
 # init: Change toybox SELinux run context
-apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
+# TODO: is in master, needs to land in p-mr1
+#apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
 # init: Wipe updated xattr from /persist/
-apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
+# TODO: is in master, needs to land in p-mr1
+#apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/606
 # Revert "common-prop: Enable dmic fluence for voicerec case"
@@ -189,17 +196,22 @@ do_if_online git fetch ix5
 
 # git checkout 'toybox-vendor-init'
 # Add vendor_toolbox context
-apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
+# TODO: is in master, needs to land in p-mr1
+#apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
 # vendor_toolbox: Allow removing xattr from /persist
-apply_commit 46959678c910300d687fcc72cd5a2aae0af6e28f
+# TODO: is in master, needs to land in p-mr1
+#apply_commit 46959678c910300d687fcc72cd5a2aae0af6e28f
 # vendor_init: Strip unneeded toybox-related permissions
-apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
+# TODO: is in master, needs to land in p-mr1
+#apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
 # vendor_toolbox: Allow SYS_ADMIN
-apply_commit 0f780bf6daa08d13c3738f1508fce35364164634
+# TODO: is in master, needs to land in p-mr1
+#apply_commit 0f780bf6daa08d13c3738f1508fce35364164634
 
 # git checkout 'kernel-socket'
 # kernel: debugfs_wlan only in debug builds
-apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
+# TODO: is in master, needs to land in p-mr1
+#apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
 popd
 
 pushd $ANDROOT/device/sony/tone
@@ -245,6 +257,7 @@ apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
 popd
 
 pushd $ANDROOT/system/sepolicy
+# UGLY!!!
 git am < $PATCHES_PATH/sepolicy-app-neverallow-exception-matlog.patch
 popd
 

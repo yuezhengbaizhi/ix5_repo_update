@@ -154,14 +154,6 @@ apply_commit 0a21146905c7f9bfbd3791855b791d6642345fb2
 # vintf: Lower radio version to 1.1
 apply_commit 25d4d23c987cb6ff63c0462ff6ced0d389deec7b
 
-# git checkout 'remove-packages'
-# common-packages: Remove p2p_supplicant.conf
-apply_commit 16b818d79d1fab29bb24dc8a9281621e88c52cce
-# common-packages: Remove libemoji
-apply_commit b5790e2affe1e0707e0cfaef4b550e3b17fc5acf
-# common-treble: nfc: Remove @1.1-impl
-apply_commit f0bc81b29670a8b6402dc1c26b47da60a0ea4701
-
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-common"
 # TODO: Remove me once merged into Q/master
 
@@ -171,7 +163,7 @@ apply_pull_commit 608 37f78456f546d59507b58af140e943d617863cc6
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/609
 # qcom/utils.mk: Use ?= for definitions
-apply_pull_commit 609 5ed2a553e443f617c79c6e7bd2bb6a8ebc218ff4
+apply_pull_commit 609 7c43cdaa721692086eb3a23bea3821a65c082def
 
 # https://github.com/sonyxperiadev/device-sony-common/pull/610
 # [Q-COMPAT] Move kernel includes to common.mk
@@ -191,18 +183,6 @@ apply_commit 2019f8b5499d553c51b000202a2a62121f8568e6
 # power: No subsystem stats in user builds
 apply_pull_commit 616 76fc5c2fb36a3f1bfe24d51daa04caeb5ce14fdb
 
-# https://github.com/sonyxperiadev/device-sony-common/pull/615
-# power: Add interface info to .rc
-apply_pull_commit 615 bcc1358c046cfac4b06a0faa3c0350e1d412760b
-# power: Fix unused var in Hints.cpp
-apply_pull_commit 615 ff71c5951b3ace5c48eef2ab094c3955af0105d4
-
-# https://github.com/sonyxperiadev/device-sony-common/pull/613
-# init: Change toybox SELinux run context
-apply_pull_commit 613 aa92c5824275d9b848f563aebe9b4a2a66c0eb76
-# init: Wipe updated xattr from /persist/
-apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
-
 # https://github.com/sonyxperiadev/device-sony-common/pull/606
 # Revert "common-prop: Enable dmic fluence for voicerec case"
 apply_pull_commit 606 fe3f8ffb83a0f0a729aa8294c3fc8b39961d4bd4
@@ -217,20 +197,6 @@ do_if_online git fetch ix5
 # git checkout 'q-sepolicy-version'
 # Q: TEMP: Set sepolicy version to match master
 apply_commit 64501e76d4daced00ef64f4a9bb08e99b7ad650e
-
-# git checkout 'toybox-vendor-init'
-# Add vendor_toolbox context
-apply_commit 8bfd45c7f845ab357e7117382ebf189e06d16d33
-# vendor_toolbox: Allow removing xattr from /persist
-apply_commit 46959678c910300d687fcc72cd5a2aae0af6e28f
-# vendor_init: Strip unneeded toybox-related permissions
-apply_commit 96ae44e5fa6784f50f6e63f5a5762d723080ebff
-# vendor_toolbox: Allow SYS_ADMIN
-apply_commit 0f780bf6daa08d13c3738f1508fce35364164634
-
-# git checkout 'kernel-socket'
-# kernel: debugfs_wlan only in debug builds
-apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
 
 # git checkout 'remove-dupe-idc-keylayout-noconflict'
 # [NOCONFLICT] Remove duplicated idc file defs
