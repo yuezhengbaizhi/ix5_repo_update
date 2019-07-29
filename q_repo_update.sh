@@ -299,9 +299,6 @@ LINK=$HTTP && LINK+="://github.com/sonyxperiadev/camera"
 # https://github.com/sonyxperiadev/camera/pull/113
 # Makefiles: Remove "eng" from LOCAL_MODULE_TAGS
 apply_pull_commit 113 7e0b2f7224d60726ff828d9a008dce4c7d345633
-# https://github.com/sonyxperiadev/camera/pull/114
-# QCamera2: HAL: Change CDS mode to OFF by default.
-apply_pull_commit 114 fcff40461ab5ff80f928130eb885f8f0544363e9
 popd
 
 pushd $ANDROOT/vendor/qcom/opensource/location
