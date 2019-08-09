@@ -1,15 +1,15 @@
-From d5ac64b1777aa868c1f4df83082a28eb917f16fe Mon Sep 17 00:00:00 2001
+From c8021094781f049bb06a6f0db989d6556137d1aa Mon Sep 17 00:00:00 2001
 From: Anonymous <none@none.none>
-Date: Sun, 26 May 2019 19:56:07 +0200
+Date: Fri, 9 Aug 2019 23:26:54 +0200
 Subject: [PATCH] Bluetoth tests: Remove emailcommon dependency
 
-Change-Id: I9294ee43a508316d1951b8611c7f25cf92a1cf1c
+Change-Id: I4d09e623248ad5c4c7ee7587ddbf0a63f84af1c3
 ---
  tests/unit/Android.mk | 1 -
  1 file changed, 1 deletion(-)
 
 diff --git a/tests/unit/Android.mk b/tests/unit/Android.mk
-index 98c88d40..0ba6f3771 100644
+index 24db70ff..9bfd4ab0 100644
 --- a/tests/unit/Android.mk
 +++ b/tests/unit/Android.mk
 @@ -14,7 +14,6 @@ LOCAL_JAVA_LIBRARIES := \
@@ -19,7 +19,7 @@ index 98c88d40..0ba6f3771 100644
 -    com.android.emailcommon \
      androidx.test.rules \
      mockito-target \
-     androidx.test.espresso.intents
+     androidx.test.espresso.intents \
 -- 
-2.21.0
+2.22.0
 
