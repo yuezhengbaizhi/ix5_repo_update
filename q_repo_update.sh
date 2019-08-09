@@ -260,13 +260,6 @@ apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
 #apply_commit a0253f3de75c52bccb9275ee7eda6cd2f9db539c
 popd
 
-pushd $ANDROOT/vendor/qcom/opensource/camera
-LINK=$HTTP && LINK+="://github.com/sonyxperiadev/camera"
-# https://github.com/sonyxperiadev/camera/pull/113
-# Makefiles: Remove "eng" from LOCAL_MODULE_TAGS
-apply_pull_commit 113 7e0b2f7224d60726ff828d9a008dce4c7d345633
-popd
-
 pushd $ANDROOT/vendor/qcom/opensource/location
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/vendor-qcom-opensource-location"
 # https://github.com/sonyxperiadev/vendor-qcom-opensource-location/pull/19
