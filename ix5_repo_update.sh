@@ -183,6 +183,9 @@ apply_pull_commit 616 76fc5c2fb36a3f1bfe24d51daa04caeb5ce14fdb
 # TODO: is in master, needs to land in p-mr1
 #apply_pull_commit 613 305913cf13ee4d405783fd35d20ce47341313f2c
 
+# [Q-COMPAT] common: Set PRODUCT_BUILD_RECOVERY_IMAGE=true
+apply_pull_commit 633 cafdcfd5a718a1fbe233436fdc3b9e5fe1f6b70c
+
 # https://github.com/sonyxperiadev/device-sony-common/pull/606
 # Revert "common-prop: Enable dmic fluence for voicerec case"
 apply_pull_commit 606 fe3f8ffb83a0f0a729aa8294c3fc8b39961d4bd4

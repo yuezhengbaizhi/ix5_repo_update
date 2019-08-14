@@ -171,6 +171,9 @@ apply_pull_commit 610 1bf9381b197fde93b3d74dd30fb7579aae84c2f7
 # common.mk: Make BUILD_KERNEL customizable
 apply_pull_commit 610 673508ec65ba23256e7ca0e376ba130ce3ae9859
 
+# [Q-COMPAT] common: Set PRODUCT_BUILD_RECOVERY_IMAGE=true
+apply_pull_commit 633 cafdcfd5a718a1fbe233436fdc3b9e5fe1f6b70c
+
 # https://github.com/sonyxperiadev/device-sony-common/pull/617
 # odm: Use PRODUCT_ODM_PROPERTIES for version
 apply_pull_commit 617 aefced5342afec013bff975f04050762a6c89b78
