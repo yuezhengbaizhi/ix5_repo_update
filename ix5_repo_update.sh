@@ -215,6 +215,11 @@ do_if_online git fetch ix5
 # kernel: debugfs_wlan only in debug builds
 # TODO: is in master, needs to land in p-mr1
 #apply_commit 444894b98f8d14c3f0b64a1ba23b19a907638b2f
+
+LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-sepolicy"
+
+# [Q-COMPAT] system_app: Remove obsolete perfprofd dontaudit
+apply_pull_commit 531 617c2ebd443f36a54687cc136c86f0880b0f5e1f
 popd
 
 pushd $ANDROOT/device/sony/tone

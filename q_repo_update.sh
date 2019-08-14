@@ -213,6 +213,10 @@ apply_commit c086d8a5bd1daa4d27717154e76c97044c8e958c
 # netmgrd: Remove unused netd_socket
 apply_commit 1a59778834eefedcb3e56e910d10392595db3d57
 
+LINK=$HTTP && LINK+="://github.com/sonyxperiadev/device-sony-sepolicy"
+
+# [Q-COMPAT] system_app: Remove obsolete perfprofd dontaudit
+apply_pull_commit 531 617c2ebd443f36a54687cc136c86f0880b0f5e1f
 popd
 
 
