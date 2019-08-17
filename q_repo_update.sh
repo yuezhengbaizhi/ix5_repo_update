@@ -244,6 +244,31 @@ apply_commit 19f8a85dcd7d2f1412579b1f0d8da7400552882f
 apply_commit 25e58e5989bb4f50845e83b0349811102b5a69b3
 popd
 
+pushd $ANDROOT/device/sony/yoshino
+LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-yoshino"
+(git remote --verbose | grep -q $LINK) || git remote add sjll $LINK
+do_if_online git fetch sjll
+
+# git checkout 'disable-verity-no-forceencrypt'
+# Change forceencrypt to encryptable for userdata
+apply_commit 942b8b0e351eeb90627dd4d5a38632a83c4ba138
+# Disable dm-verity
+apply_commit b56d07ee12550e8a5503fe306ff6650b77dcb076
+
+# git checkout 'q-bdroid-property-length'
+# bdroid_buildcfg: Fix PROPERTY_VALUE_MAX definition
+apply_commit 35f5bd64a26be6552d0a2042b087756232daab8b
+
+# git checkout 'q-product-build-bootimg'
+# platform: Build boot image
+apply_commit 1057bfd104c481465f045d1fe493770104c352e9
+
+# git checkout 'treble-buildvars'
+# platform/Platform: Enable VNDK, linker ns
+apply_commit 8f0481c5f42a0ca9e956455810d0345077ce3edf
+popd
+
+
 
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
