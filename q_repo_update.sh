@@ -305,6 +305,15 @@ apply_commit b0b3f6b4385ebc4a648f1f31a9ca9dfdec7557f1
 # Set minimum brightness values to 2 and 1
 apply_commit f6e9a5aaa6948012199c3601ee89a2f6378d21d5
 
+pushd $ANDROOT/device/sony/maple
+LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-maple"
+(git remote --verbose | grep -q $LINK) || git remote add sjll $LINK
+do_if_online git fetch sjll
+
+# git checkout 'lunch'
+# Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
+apply_commit 97d7d0099f495255e858dfd03123cd70b720c86b
+
 pushd $ANDROOT/vendor/qcom/opensource/location
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/vendor-qcom-opensource-location"
 # https://github.com/sonyxperiadev/vendor-qcom-opensource-location/pull/19
