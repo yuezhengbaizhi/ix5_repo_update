@@ -267,6 +267,19 @@ apply_commit 449f9eccfd292d968a98d08546062aedbf6e1a2d
 #apply_commit a0253f3de75c52bccb9275ee7eda6cd2f9db539c
 popd
 
+pushd $ANDROOT/device/sony/dora
+LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-dora"
+(git remote --verbose | grep -q $LINK) || git remote add sjll $LINK
+do_if_online git fetch sjll
+
+# git checkout 'lunch'
+# Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
+apply_commit b0b3f6b4385ebc4a648f1f31a9ca9dfdec7557f1
+
+# git checkout 'brightness'
+# Set minimum brightness values to 2 and 1
+apply_commit f6e9a5aaa6948012199c3601ee89a2f6378d21d5
+
 pushd $ANDROOT/vendor/qcom/opensource/location
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/vendor-qcom-opensource-location"
 # https://github.com/sonyxperiadev/vendor-qcom-opensource-location/pull/19
