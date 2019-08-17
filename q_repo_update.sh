@@ -337,6 +337,15 @@ do_if_online git fetch sjll
 # Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
 apply_commit 97d7d0099f495255e858dfd03123cd70b720c86b
 
+pushd $ANDROOT/device/sony/suzu
+LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-suzu"
+(git remote --verbose | grep -q $LINK) || git remote add sjll $LINK
+do_if_online git fetch sjll
+
+# git checkout 'lunch'
+# Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
+apply_commit e7112e433e1717ff31ab85b3dcb35bf5872c3025
+
 pushd $ANDROOT/vendor/qcom/opensource/location
 LINK=$HTTP && LINK+="://github.com/sonyxperiadev/vendor-qcom-opensource-location"
 # https://github.com/sonyxperiadev/vendor-qcom-opensource-location/pull/19
