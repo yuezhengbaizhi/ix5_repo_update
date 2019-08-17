@@ -300,6 +300,7 @@ do_if_online git fetch sjll
 # git checkout 'lunch'
 # Switch from add_lunch_combo to COMMON_LUNCH_CHOICES
 apply_commit b0b3f6b4385ebc4a648f1f31a9ca9dfdec7557f1
+apply_commit a06872f81cca921f8849744d02b157771ad800b3
 
 # git checkout 'brightness'
 # Set minimum brightness values to 2 and 1
