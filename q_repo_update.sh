@@ -268,7 +268,29 @@ apply_commit 1057bfd104c481465f045d1fe493770104c352e9
 apply_commit 8f0481c5f42a0ca9e956455810d0345077ce3edf
 popd
 
+pushd $ANDROOT/device/sony/loire
+LINK=$HTTP && LINK+="://github.com/sjllls/device-sony-loire"
+(git remote --verbose | grep -q $LINK) || git remote add sjll $LINK
+do_if_online git fetch sjll
 
+# git checkout 'disable-verity-no-forceencrypt'
+# Change forceencrypt to encryptable for userdata
+apply_commit 44cfd94c630b7b8e470f9516b855129d77605048
+# Disable dm-verity
+apply_commit 52e4eb73ad4501c21ba2e33b123bff3af48c2e72
+
+# git checkout 'q-bdroid-property-length'
+# bdroid_buildcfg: Fix PROPERTY_VALUE_MAX definition
+apply_commit 140311e70babb7e845415a2015fc23d24277200a
+
+# git checkout 'q-product-build-bootimg'
+# platform: Build boot image
+apply_commit cd656fa2578950ee1289fa34279118078b6186e9
+
+# git checkout 'treble-buildvars'
+# platform/Platform: Enable VNDK, linker ns
+apply_commit 306418fc1205a1ba4581c6f27a3cd09b54b00385
+popd
 
 pushd $ANDROOT/device/sony/kagura
 LINK=$HTTP && LINK+="://git.ix5.org/felix/device-sony-kagura"
