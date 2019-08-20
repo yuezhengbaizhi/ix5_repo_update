@@ -11,6 +11,7 @@ export ALLOW_MISSING_DEPENDENCIES=true
 #Remove dir that sony will use in the future not currently or u will get conflicts
 
 rm -rf vendor/oss/external/exfat
+rm -rf vendor/external/exfat
 rm -rf vendor/oss/interfaces/usb
 
 rm -rf hardware/qcom/data/ipacfg-mgr/sdm845
